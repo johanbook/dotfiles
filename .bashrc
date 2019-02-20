@@ -1,13 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -29,11 +19,6 @@ shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -87,18 +72,22 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.dotfiles/.aliases ]; then
+    . ~/.dotfiles/.aliases
+else
+   echo '.aliases not found'
+fi
+
+# Ls color scheme
+if [ -f ~/.dotfiles/.ls_color_scheme ]; then
+   . ~/.dotfiles/.ls_color_scheme
+else
+   echo 'Unable to find .ls_color_scheme'
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -111,41 +100,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# Make things look nice
-
-# Directories: Pink
-LS_COLORS=$LS_COLORS:'di=1;35:' ; export LS_COLORS
-
-# Text documents: Green
-LS_COLORS=$LS_COLORS:'*.pdf=0;92:' ; export LS_COLORS
-LS_COLORS=$LS_COLORS:'*.doc=0;92:' ; export LS_COLORS
-LS_COLORS=$LS_COLORS:'*.docx=0;92:' ; export LS_COLORS
-LS_COLORS=$LS_COLORS:'*.txt=0;92:' ; export LS_COLORS
-LS_COLORS=$LS_COLORS:'*.odt=0;92:' ; export LS_COLORS
-
-# Images: Cyan
-LS_COLORS=$LS_COLORS:'*.png=0;96:' ; export LS_COLORS
-LS_COLORS=$LS_COLORS:'*.eps=0;96:' ; export LS_COLORS
-LS_COLORS=$LS_COLORS:'*.jpg=0;96:' ; export LS_COLORS
-LS_COLORS=$LS_COLORS:'*.JPG=0;96:' ; export LS_COLORS
-
-# LaTeX:
-LS_COLORS=$LS_COLORS:'*.tex=0;33:' ; export LS_COLORS	
-
-# Zip File: Red
-
-# Code : Yellow
-LS_COLORS=$LS_COLORS:'*.py=0;93:' ; export LS_COLORS	
-LS_COLORS=$LS_COLORS:'*.java=0;93:' ; export LS_COLORS	
-LS_COLORS=$LS_COLORS:'*.cpp=0;93:' ; export LS_COLORS	
-LS_COLORS=$LS_COLORS:'*.cc=0;93:' ; export LS_COLORS	
-LS_COLORS=$LS_COLORS:'*.cpp=0;93:' ; export LS_COLORS
-LS_COLORS=$LS_COLORS:'*.m=0;93:' ; export LS_COLORS
-
-# Data Files :
-LS_COLORS=$LS_COLORS:'*.mat=0;97:' ; export LS_COLORS
-LS_COLORS=$LS_COLORS:'*.dat=0;97:' ; export LS_COLORS
 
 # Start it
 # setterm -bfreq 0
