@@ -1,7 +1,3 @@
-################################################
-# Unique to computer Lagrange
-################################################
-
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -34,22 +30,4 @@ extract () {
    else
        echo "Error: '$1' is not a valid file"
    fi
-}
-
-################################################
-# Unique to computer Lagrange
-################################################
-
-alias pycharm='bash ~/pycharm/bin/pycharm.sh &'
-alias key='xclip -sel clip ~/llave/gitlab'
-alias get_paperspace_auth='cat ~/llave/paperspace'
-
-topaperspace () {
-	paperspace jobs create \
-	--machineType GPU+ \
-	--command "$*" \
-	--workspace $PWD \
-	--container "registry.gitlab.com/desupervised/alvis/gpu:master" \
-	--registryUsername "johan.book@desupervised.io" \
-	--registryPassword $(get_paperspace_auth)
 }
