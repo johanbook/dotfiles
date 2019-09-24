@@ -40,7 +40,8 @@ extract () {
 # Unique to computer Lagrange
 ################################################
 
-alias pycharm='bash ~/pycharm/bin/pycharm.sh &'
+alias pycharm='nohup bash ~/pycharm/bin/pycharm.sh > /dev/null 2>&1 &'
+alias jupyter='nohup jupyter notebook > /dev/null 2>&1 &'
 alias key='xclip -sel clip ~/llave/gitlab'
 alias get_paperspace_auth='cat ~/llave/paperspace'
 
@@ -49,7 +50,7 @@ topaperspace () {
 	--machineType GPU+ \
 	--command "$*" \
 	--workspace $PWD \
-	--container "registry.gitlab.com/desupervised/alvis/gpu:master" \
+	--container "registry.gitlab.com/johanbook/alvis-jta/gpu:latest" \
 	--registryUsername "johan.book@desupervised.io" \
 	--registryPassword $(get_paperspace_auth)
 }
