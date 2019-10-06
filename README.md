@@ -1,6 +1,6 @@
 # Johan's Dotfiles
-## Ubuntu 18.04.3 LTS (Bionic)
-## With Gruvbox Theme
+#### Ubuntu 18.04.3 LTS (Bionic)
+#### With Gruvbox Theme
 
 # Terminal
 First of all, we must install zsh, the one and superior shell.
@@ -34,6 +34,7 @@ Copy the `i3` configuration files.
 To activate it you must logout and choose `i3` next to the login button.
 
 # Vim
-Install Vundle using git clone. Once installed, run `:PluginInstall` inside Vim. After that, you should be set to go.
+Install Vundle using git clone. Once installed, run `:PluginInstall` inside Vim. After that, you should be good to go.
 
-
+# Other
+There is a Gruvbox theme for Chrome (and Firefox). Add it.
