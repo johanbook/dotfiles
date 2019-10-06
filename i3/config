@@ -184,15 +184,16 @@ set $green #98971a
 set $yellow #d79921
 set $blue #458588
 set $purple #b16286
-set $aqua #689d68
+set $aqua #689D6A
 set $gray #a89984
 set $darkgray #1d2021
+set $fg #EBDBB2
 
 # blue gruvbox
 # class                 border|backgr|text|indicator|child_border
 client.focused          $blue $blue $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.focused_inactive $darkgray $darkgray $fg $purple $darkgray
+client.unfocused        $darkgray $darkgray $fg $purple $darkgray
 client.urgent           $red $red $white $red $red
 
 # Status bar
@@ -201,14 +202,17 @@ bar {
         status_command i3blocks
 	font pango:FontAwesome 10
 	colors {
-	    background #000000
+	    background #1d2021
 	    statusline #FFFFFF
 	    separator  #666666
 
-	    focused_workspace  $blue $blue $darkgray
-	    active_workspace   $blue $blue $purple
-	    inactive_workspace $darkgray $darkgray $yellow
+	    focused_workspace  $blue $bg $blue
+	    active_workspace   $blue $darkgray $purple
+	    inactive_workspace $darkgray $darkgray $blue
 	    urgent_workspace   $red $red $white
 	    binding_mode       $red $red $purple
 	  }
 }
+
+# Set background image
+exec feh --bg-scale ~/Pictures/wallpaper.jpeg
