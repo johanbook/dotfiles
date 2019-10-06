@@ -36,5 +36,15 @@ To activate it you must logout and choose `i3` next to the login button.
 # Vim
 Install Vundle using git clone. Once installed, run `:PluginInstall` inside Vim. After that, you should be good to go.
 
+# Jupyter Notebook
+Install jupyter-theme to your system wide Python distribution,
+```bash
+sudo pip3 install jupyter-theme
+```
+and change theme to gruvbox
+```bash
+jupyter-theme -t gruvboxd
+```
+
 # Other
 There is a Gruvbox theme for Chrome (and Firefox). Add it.

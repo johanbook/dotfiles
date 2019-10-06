@@ -69,7 +69,7 @@ if ($percent < 30) {
 } elsif ($percent < 85) {
 	print "#009900";
 } else {
-	print "#009900";
+	print "#689D6A";
 }
 
 # warning flag if too low

@@ -54,7 +54,7 @@ extract () {
 ################################################
 
 alias pycharm='nohup bash ~/pycharm/bin/pycharm.sh > /dev/null 2>&1 &'
-alias jupyter='nohup jupyter notebook > /dev/null 2>&1 &'
+#alias jupyter='nohup jupyter notebook > /dev/null 2>&1 &'
 alias key='xclip -sel clip ~/llave/gitlab'
 alias get_paperspace_auth='cat ~/llave/paperspace'
 
