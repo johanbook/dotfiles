@@ -166,7 +166,7 @@ bindsym Mod1+r mode "resize"
 bindsym Mod1+B exec chromium-browser
 bindsym Mod1+N exec jupyter notebook
 bindsym Mod1+P exec bash ~/pycharm/bin/pycharm.sh
-bindsym Mod1+X exec lock
+bindsym Mod1+X exec i3lock -c '#1D2021'
 
 
 #######################################################################

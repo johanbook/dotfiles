@@ -46,7 +46,7 @@ if ($status eq 'Discharging') {
 	} elsif ($percent < 85) {
 		$full_text = '  ';
 	}
-} elsif ($status eq 'Charging') {
+} else {
 	$full_text = '  ';
 }
 $full_text .= "$percent%";
