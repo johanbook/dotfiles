@@ -3,16 +3,23 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+function cdp () {
+  # Exit current venvs, but also exits current shell
+  while [[ "$VIRTUAL_ENV" != "" ]]; do exit; done
+
+  cd "$@"; pipenv shell
+}
 
 # Clear
 alias clr=clear
 alias cls=clear
 
 # Ls
-alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
 alias ls='colorls  -1 --group-directories-first -X --sort=extension'
+function lw () {
+  ls "$@" | wc
+}
 
 # Git
 alias gs='git status'
@@ -21,11 +28,22 @@ alias gaa='git add -A'
 alias gaam='git add -A; git commit'
 alias gb='git branch'
 alias gc='git commit'
+alias gd='git diff'
+alias gdc='git diff --cached'
 alias gcnb='git checkout -b'
 
 # Other
 alias ic="ibmcloud"
 alias wifi=nmtui
+alias screens-separate='randr --auto --output eDP-1 --left-of HDMI-2 '
+function scan () {
+  ping -c 1 "$@"
+  nmap
+}
+
+# Shits and giggles
+alias cmatrix="cmatrix -C blue"
+alias star-wars="telnet towel.blinkenlights.nl"
 
 # Extract comand
 extract () {
