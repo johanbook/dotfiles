@@ -2,6 +2,9 @@
 #### Ubuntu 18.04.3 LTS (Bionic)
 #### With Gruvbox Theme
 
+Here be a preview
+![screenshot](https://raw.githubusercontent.com/johanbook/dotfiles/master/screenshot.png)
+
 # Terminal
 First of all, we must install zsh, the one and superior shell.
 ```bash
