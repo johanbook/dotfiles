@@ -73,6 +73,12 @@ let g:SimpylFold_docstring_preview=1
 " Linting
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['pylint']}
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_fixers = {'javascript': ['prettier'], 'python': ['black']}
+let g:ale_fix_on_save = 1
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -87,6 +93,7 @@ let g:airline_section_z=""
 let g:airline_section_error=""
 let g:airline_section_warning=""
 let g:airline_skip_empty_sections = 1
+let g:airline#extensions#tabline#enabled = 1
 >
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -154,14 +161,24 @@ au BufNewFile,BufRead *.py
     \ set number
 
 " HTML/CSS/JS formatting
-au BufNewFile,BufRead *.js,*.html,*.css
+au BufNewFile,BufRead *.js,*.jsx,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
 
-au BufNewFile,BufRead *.js
-    \ set number
+au BufNewFile,BufRead *.js,*.jsx
+    \ set number |
+    \ set expandtab
 
+" Key mappings
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+
+set nobackup
+set noswapfile
 
 """"""""""""""""""""""""""""""""""""""""
 " Final settings
