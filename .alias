@@ -28,18 +28,17 @@ alias gaa='git add -A'
 alias gaam='git add -A; git commit'
 alias gb='git branch'
 alias gc='git commit'
+alias gcm='git commit -m'
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias gcnb='git checkout -b'
+alias gcb='git checkout -b'
+alias gl='git log'
+alias gp='git push'
 
 # Other
 alias ic="ibmcloud"
 alias wifi=nmtui
 alias screens-separate='randr --auto --output eDP-1 --left-of HDMI-2 '
-function scan () {
-  ping -c 1 "$@"
-  nmap
-}
 
 # Shits and giggles
 alias cmatrix="cmatrix -C blue"
