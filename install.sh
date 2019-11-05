@@ -8,10 +8,16 @@ fi
 
 pwd=$(pwd)
 
+# i3
+ln -sf $(pwd)/i3/config ~/.i3/config
+ln -sf $(pwd)/i3/.i3blocks.conf ~/.i3blocks.conf
+ln -sf $(pwd)/i3/i3blocks/ ~/.config/i3/i3blocks
+
 # Vim
 ln -sf $(pwd)/.vimrc ~/.vimrc
 ln -sf $(pwd)/vim/ ~/.vim
 
+# zsh
 ln -sf $(pwd)/.zshrc ~/.zshrc
 
 echo "Installation complete"
