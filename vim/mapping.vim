@@ -5,9 +5,9 @@ let mapleader = ","
 
 " Saving and exiting
 nmap <leader>w :w<cr>
-nmap <leader>q :q<cr>
+nmap <leader>wq :wq<cr>
+nmap <leader>q :q!<cr>
 nmap <leader>qq :q!<cr>
-nmap <leader>x :wq<cr>
 nnoremap zz :update<cr>
 nnoremap zx :wq<cr>
 nnoremap xx :q!<cr>
