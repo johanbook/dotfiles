@@ -52,4 +52,5 @@ set omnifunc=syntaxcomplete#Complete
 source ~/.dotfiles/vim/filetypes.vim
 source ~/.dotfiles/vim/mapping.vim
 source ~/.dotfiles/vim/plugins.vim
+source ~/.dotfiles/vim/snippets.vim
 

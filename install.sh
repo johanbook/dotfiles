@@ -11,6 +11,7 @@ pwd=$(pwd)
 # ctags
 apt-get install ctags
 ln -sf $(pwd)/.ctags ~/.ctags
+git config --global init.templatedir $(pwd)'/git_template'
 
 # i3
 ln -sf $(pwd)/i3/config ~/.i3/config

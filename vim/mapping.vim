@@ -37,5 +37,3 @@ map <silent> <leader><cr> :noh<cr>
 " Insert single character
 nnoremap <C-i> i_<Esc>r
 
-" Snippets
-nnoremap <leader>html :-1read $HOME/.vim/skeleton/skeleton.html<CR>7jwf>a
