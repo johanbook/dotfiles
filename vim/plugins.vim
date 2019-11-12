@@ -1,25 +1,20 @@
 """"""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""
+" Disable filetype plugins (required by Vundle)
+filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Vundle
 Plugin 'gmarik/Vundle.vim'
 
-" Autocompletion
-"Plugin 'Valloric/YouCompleteMe'
-
 " Linting
 Plugin 'dense-analysis/ale'
 
 " Syntax highlighting
 Plugin 'sheerun/vim-polyglot'
-
-" NERDTree
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-"Plugin 'ryanoasis/vim-devicons'
 
 " Powerline
 Plugin 'vim-airline/vim-airline'
@@ -43,20 +38,6 @@ filetype plugin indent on
 " Plugin settings
 """"""""""""""""""""""""""""""""""""""""
 
-" Autocompletion
-"let g:ycm_autoclose_preview_window_after_completion=1
-"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" Make virtual env available (needed for autocompletion)
-" python3 << EOF
-" import os
-" import sys
-"if 'VIRTUAL_ENV' in os.environ:
-"  project_base_dir = os.environ['VIRTUAL_ENV']
-"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"  execfile(activate_this, dict(__file__=activate_this))
-"EOF
-
 " Linting
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
@@ -66,14 +47,15 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_fixers = {'css': ['prettier'], 'html':['prettier'], 'javascript': ['prettier'], 'python': ['black']}
 let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_echo_cursor = 0
 
-" NERDTree
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-"map <C-o> :NERDTreeToggle<CR>
-"map <leader>nn :NERDTreeToggle<cr>
-"map <leader>nb :NERDTreeFromBookmark 
-"map <leader>nf :NERDTreeFind<cr>
+" NetRW file browser
+let g:netrw_banner=0 " hide banner
+let g:netrw_browse_split=0 " 0: re-use window, 2: open files in new vsplit
+let g:netrw_altv=1 " I dunno
+let g:netrw_liststyle=3 " show like a tree
+"let g:netrw_winsize = 15 "percentual size of window
 
 " Powerline
 let g:airline_theme='gruvbox'
@@ -126,3 +108,4 @@ let g:conoline_use_colorscheme_default_insert=1
 " Git info
 let g:signify_vcs_list = [ 'git' ]
 
+filetype on

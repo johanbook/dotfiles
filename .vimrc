@@ -4,9 +4,6 @@
 " Ignore compability with vi
 set nocompatible
 
-" Disable filetype plugins (required by Vundle)
-filetype off
-
 " Auto read when a file is changed from the outside
 set autoread
 
@@ -38,6 +35,19 @@ set clipboard=unnamed
 
 " Encoding
 set encoding=utf-8
+
+" Allow for recursive search
+set path+=**
+
+" Show several matches when searching
+set wildmenu
+
+" Activate tag searching
+set tags=.tags
+":autocmd BufWritePost * ctags -R -o .tags
+
+" Activate omnicomplte
+set omnifunc=syntaxcomplete#Complete
 
 source ~/.dotfiles/vim/filetypes.vim
 source ~/.dotfiles/vim/mapping.vim

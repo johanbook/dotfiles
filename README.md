@@ -11,6 +11,7 @@ First of all, we must install zsh, the one and superior shell.
 sudo apt-get install zsh
 ```
 Copy the `.zshrc` to your home folder, logout and login and you should be good to go.
+Install https://github.com/kutsan/zsh-system-clipboard
 
 ## Fonts
 We need the install the nerdfonts.
@@ -31,12 +32,16 @@ Install powerline and copy settings.
 # i3
 Install i3 window manager
 ```bash
-sudp apt-get install i3
+sudo apt-get install i3
 ```
 Copy the `i3` configuration files.
 To activate it you must logout and choose `i3` next to the login button.
 
 # Vim
+Make sure you the best vim
+```bash
+sudo apt-get install vim?gtk?
+```
 Install Vundle using git clone. Once installed, run `:PluginInstall` inside Vim. After that, you should be good to go.
 
 # Jupyter Notebook

@@ -8,6 +8,10 @@ fi
 
 pwd=$(pwd)
 
+# ctags
+apt-get install ctags
+ln -sf $(pwd)/.ctags ~/.ctags
+
 # i3
 ln -sf $(pwd)/i3/config ~/.i3/config
 ln -sf $(pwd)/i3/.i3blocks.conf ~/.i3blocks.conf

@@ -40,7 +40,7 @@ alias gri='git rebase -i'
 # Other
 alias ic="ibmcloud"
 alias wifi=nmtui
-alias screens-separate='randr --auto --output eDP-1 --left-of HDMI-2 '
+alias screens-separate='xrandr --auto --output eDP-1 --left-of HDMI-2; feh --bg-scale ~/Pictures/wallpaper.jpeg '
 
 # Shits and giggles
 alias cmatrix="cmatrix -C blue"
