@@ -27,6 +27,11 @@ Plugin 'gruvbox-community/gruvbox'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mhinz/vim-signify'
 
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+
+Plugin 'alvan/vim-closetag'
+
 " Highlight current line
 Plugin 'miyakogi/conoline.vim'
 
@@ -53,7 +58,7 @@ let g:ale_echo_cursor = 0
 " NetRW file browser
 let g:netrw_banner=0 " hide banner
 let g:netrw_browse_split=0 " 0: re-use window, 2: open files in new vsplit
-let g:netrw_altv=1 " I dunno
+let g:netrw_altv=0 " I dunno
 let g:netrw_liststyle=3 " show like a tree
 "let g:netrw_winsize = 15 "percentual size of window
 
@@ -104,8 +109,50 @@ colorscheme gruvbox
 " Conoline
 let g:conoline_auto_enable = 1
 let g:conoline_use_colorscheme_default_insert=1
+let g:conoline_use_colorscheme_default_normal=1
 
 " Git info
 let g:signify_vcs_list = [ 'git' ]
+
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+"
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
 
 filetype on
