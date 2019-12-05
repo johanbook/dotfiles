@@ -2,13 +2,16 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+hist_save_no_dups=1
 
 # Vim style keys
 bindkey -v
 
-
 # Aliases
 source  ~/.dotfiles/.alias
+
+# zsh-system-clipboard
+source ~/.dotfiles/bin/zsh-system-clipboard/zsh-system-clipboard.zsh
 
 # Fuzzy finder
 FZF_DEFAULT_COMMAND='ls'

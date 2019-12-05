@@ -6,8 +6,6 @@ then
     exit 0
 fi
 
-pwd=$(pwd)
-
 # ctags
 apt-get install ctags
 ln -sf $(pwd)/.ctags ~/.ctags

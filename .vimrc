@@ -42,12 +42,10 @@ set path+=**
 " Show several matches when searching
 set wildmenu
 
-" Activate tag searching
-set tags=.tags
-":autocmd BufWritePost * ctags -R -o .tags
-
 " Activate omnicomplte
 set omnifunc=syntaxcomplete#Complete
+
+set tags^=./.git/tags;
 
 source ~/.dotfiles/vim/filetypes.vim
 source ~/.dotfiles/vim/mapping.vim
