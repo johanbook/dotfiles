@@ -72,9 +72,4 @@ if ($percent < 30) {
 	print "#458588";
 }
 
-# warning flag if too low
-if ($percent < 20) {
-	exit(33);
-}
-
 exit(0);
