@@ -27,6 +27,7 @@ alias ga='git add'
 alias gaa='git add -A'
 alias gaam='git add -A; git commit'
 alias gb='git branch'
+alias gbd='git branch -d'
 alias gc='git checkout'
 alias gca='git commit --amend'
 alias gcm='git commit -m'
@@ -46,6 +47,7 @@ alias gst='git stash'
 # Other
 alias ic="ibmcloud"
 alias size="duh -sh"
+alias volume="amixer sset 'Master'"
 alias wifi=nmtui
 screens-separate() {
   xrandr --auto --output eDP-1 --left-of HDMI-2
