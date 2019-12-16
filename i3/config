@@ -227,6 +227,5 @@ bar {
 }
 
 # Set background image
-exec xautolock -detectsleep -time 5 -locker "i3lock -c '#1D2021'"
 exec feh --bg-scale ~/Pictures/wallpaper.jpeg
 
