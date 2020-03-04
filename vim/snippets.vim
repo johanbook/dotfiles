@@ -1,5 +1,7 @@
 " General
 iabbrev imp import
+iabbrev heigth height
+iabbrev teh the
 
 " Javascript
 iabbrev clg console.log();
@@ -17,10 +19,11 @@ autocmd BufNewFile,BufRead *.py call PythonAbbrev()
 " React
 function! ReactAbbrev()
   iabbrev <buffer> imr import React from 'react';
+  iabbrev <buffer> impp import PropTypes from 'prop-types';
   iabbrev <buffer> imrs import React, {useState} from 'react';
   iabbrev <buffer> sfc export function foo() {<CR><Tab>return null;<CR>}
 endfunction
 autocmd BufNewFile,BufRead *.jsx call ReactAbbrev()
 
 " Other
-iabbrev lipsum Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer diam augue, egestas quis, aliquam ut, venenatis ut, quam. Quisque ut augue. Integer non neque a lectus venenatis fermentum. Morbi quis eros nec elit molestie vehicula. Integer nunc lacus, sodales posuere, rutrum quis, blandit at, mi. Vivamus imperdiet wisi vel mauris. Morbi mattis ante non metus. Sed turpis dui, fermentum ut, aliquam eget, vulputate ullamcorper, pede. Nam non dolor. Etiam lobortis, urna id bibendum convallis, ligula augue auctor eros, a dictum sapien mi a tellus. Proin vel justo. Nunc malesuada turpis a sapien.
+iabbrev lorem Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer diam augue, egestas quis, aliquam ut, venenatis ut, quam. Quisque ut augue. Integer non neque a lectus venenatis fermentum. Morbi quis eros nec elit molestie vehicula. Integer nunc lacus, sodales posuere, rutrum quis, blandit at, mi. Vivamus imperdiet wisi vel mauris. Morbi mattis ante non metus. Sed turpis dui, fermentum ut, aliquam eget, vulputate ullamcorper, pede. Nam non dolor. Etiam lobortis, urna id bibendum convallis, ligula augue auctor eros, a dictum sapien mi a tellus. Proin vel justo. Nunc malesuada turpis a sapien.
