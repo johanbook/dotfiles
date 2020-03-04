@@ -30,9 +30,6 @@ set lazyredraw
 " Keep some lines as marginals when scrolling
 set so=7
 
-" Use global clipboard
-set clipboard=unnamed
-
 " Encoding
 set encoding=utf-8
 
