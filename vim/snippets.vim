@@ -21,7 +21,7 @@ function! ReactAbbrev()
   iabbrev <buffer> imr import React from 'react';
   iabbrev <buffer> impp import PropTypes from 'prop-types';
   iabbrev <buffer> imrs import React, {useState} from 'react';
-  iabbrev <buffer> sfc export function foo() {<CR><Tab>return null;<CR>}
+  iabbrev <buffer> sfc import React from "react"; <CR><CR>export default function ({}) {<CR><Tab>return (<React.Fragment></React.Fragment>);<CR>}
 endfunction
 autocmd BufNewFile,BufRead *.jsx call ReactAbbrev()
 
