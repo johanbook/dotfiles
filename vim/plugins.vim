@@ -2,40 +2,41 @@
 " Plugins
 """"""""""""""""""""""""""""""""""""""""
 " Disable filetype plugins (required by Vundle)
-filetype off
+" filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 " Vundle
-Plugin 'gmarik/Vundle.vim'
+Plug 'gmarik/Vundle.vim'
 
 " Linting
-Plugin 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
 " Syntax highlighting
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 " Powerline
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Theme
-Plugin 'gruvbox-community/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 " Show git information
-Plugin 'tpope/vim-fugitive'
-Plugin 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
 
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 
-Plugin 'alvan/vim-closetag'
+Plug 'alvan/vim-closetag'
 
 " Highlight current line
-Plugin 'miyakogi/conoline.vim'
+Plug 'miyakogi/conoline.vim'
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 
