@@ -6,6 +6,9 @@ let mapleader = ","
 " Remap escape
 inoremap jk <ESC>
 
+" Unset recording, as I never use that
+map q <Nop> 
+
 " Saving and exiting
 nmap <leader>w :w<cr>
 nmap <leader>ww :w<cr>

@@ -39,18 +39,6 @@ filetype plugin indent on
 " Plugin settings
 """"""""""""""""""""""""""""""""""""""""
 
-" Linting
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['pylint']}
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_fixers = {'css': ['prettier'], 'html':['prettier'], 'javascript': ['prettier'], 'python': ['black']}
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 0
-let g:ale_echo_cursor = 1
-
 " NetRW file browser
 let g:netrw_banner=0 " hide banner
 let g:netrw_browse_split=0 " 0: re-use window, 2: open files in new vsplit
@@ -260,6 +248,7 @@ let g:coc_global_extensions = [
 \ 'coc-dictionary',
 \ 'coc-docker',
 \ 'coc-json',
+\ 'coc-highlight',
 \ 'coc-markdownlint',
 \ 'coc-marketplace',
 \ 'coc-tsserver',
@@ -276,3 +265,14 @@ let g:coc_global_extensions = [
 nnoremap <silent> <C-y>  :<C-u>CocList -A --normal yank<cr>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" Linting
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['pylint']}
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_fixers = {'css': ['prettier'], 'html':['prettier'], 'javascript': ['prettier'], 'javascriptreact': ['prettier'], 'python': ['black']}
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_echo_cursor = 1

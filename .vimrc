@@ -39,6 +39,8 @@ set path+=**
 " Show several matches when searching
 set wildmenu
 
+set termguicolors
+
 " Activate omnicomplte
 set omnifunc=syntaxcomplete#Complete
 
