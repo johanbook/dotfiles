@@ -1,19 +1,12 @@
 """"""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""
-" Disable filetype plugins (required by Vundle)
-" filetype off
-
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
 call plug#begin('~/.vim/plugged')
-
-" Vundle
-Plug 'gmarik/Vundle.vim'
 
 " Linting
 Plug 'dense-analysis/ale'
 
+" Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Syntax highlighting
@@ -55,8 +48,8 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_fixers = {'css': ['prettier'], 'html':['prettier'], 'javascript': ['prettier'], 'python': ['black']}
 let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
-let g:ale_echo_cursor = 0
+let g:ale_completion_enabled = 0
+let g:ale_echo_cursor = 1
 
 " NetRW file browser
 let g:netrw_banner=0 " hide banner
@@ -192,8 +185,10 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" nmap <silent> [c <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> [c <Plug>(ale_previous_wrap)
+nmap <silent> ]c <Plug>(ale_next_wrap)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -262,22 +257,21 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 "       \ },
 "       \ }
 let g:coc_global_extensions = [
-\ 'coc-tsserver',
-\ 'coc-omni',
-\ 'coc-yank',
-\ 'coc-syntax',
-\ 'coc-tag',
-\ 'coc-marketplace',
 \ 'coc-dictionary',
-\ 'coc-yaml',
-\ 'coc-python',
 \ 'coc-docker',
-\ 'coc-pairs',
-\ 'coc-prettier',
 \ 'coc-json',
 \ 'coc-markdownlint',
+\ 'coc-marketplace',
+\ 'coc-tsserver',
+\ 'coc-omni',
+\ 'coc-pairs',
+\ 'coc-python',
+\ 'coc-syntax',
+\ 'coc-tabnine',
+\ 'coc-tag',
+\ 'coc-yaml',
+\ 'coc-word',
 \ ]
-" \ 'coc-tabnine',
 
 nnoremap <silent> <C-y>  :<C-u>CocList -A --normal yank<cr>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
