@@ -9,6 +9,15 @@ iabbrev clg console.log();
 " HTML
 nnoremap <leader>html :-1read $HOME/.vim/skeleton/skeleton.html<CR>7jwf>a
 
+" Markdown
+function! MarkdownAbbrev()
+  iabbrev <buffer> alviss alvíss
+  iabbrev <buffer> Alviss Alvíss
+endfunction
+autocmd BufNewFile,BufRead *.md call MarkdownAbbrev()
+
+
+
 " Python
 function! PythonAbbrev()
   iabbrev <buffer> """ """<CR>"""<Up>
