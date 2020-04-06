@@ -9,6 +9,9 @@ inoremap jk <ESC>
 " Unset recording, as I never use that
 map q <Nop> 
 
+" Unset Ex mode
+map Q <Nop> 
+
 " Saving and exiting
 nmap <leader>w :w<cr>
 nmap <leader>ww :w<cr>

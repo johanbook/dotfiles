@@ -39,11 +39,13 @@ set path+=**
 " Show several matches when searching
 set wildmenu
 
+" Use true colors
 set termguicolors
 
 " Activate omnicomplte
 set omnifunc=syntaxcomplete#Complete
 
+" Use tags
 set tags^=./.git/tags;
 
 source ~/.dotfiles/vim/filetypes.vim

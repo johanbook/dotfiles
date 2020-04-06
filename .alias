@@ -30,6 +30,7 @@ alias dc=' \
     docker network prune -f  || true; \
     docker volume rm $(docker volume ls -q) || true'
 alias dl='docker service ls -q | xargs -L 1 docker service logs 2>&1 | grep -i error'
+alias dls='docker image ls' 
 
 # Git
 alias ga='git add'
@@ -48,12 +49,16 @@ alias gcb='git checkout -b'
 alias gcnb=gcb
 alias gl='git log -25 --graph --pretty=format:"%C(yellow)%h - %C(green)%cn %C(reset)%s %C(blue bold)%d"'
 alias gp='git push'
+alias gpl='git pull'
 alias gr='git rebase'
 alias gri='git rebase -i'
 alias gs='git status --short --branch'
 alias gsp='git stash pop'
 alias gst='git stash'
 alias gprune='git remote prune origin'
+function grefresh() {
+  gc master; gbd $1; gpl; gprune
+}
 
 # Other
 alias ic="ibmcloud"
