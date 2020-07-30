@@ -39,7 +39,7 @@ alias gaam='git add -A; git commit'
 alias gb='git branch'
 alias gbd='git branch -d'
 alias gc='git checkout'
-alias gca='git commit --amend'
+alias gca='git commit --amend --no-edit'
 alias gcm='git commit -m'
 alias gch='git checkout'
 alias gd='git diff'
@@ -56,9 +56,16 @@ alias gs='git status --short --branch'
 alias gsp='git stash pop'
 alias gst='git stash'
 alias gprune='git remote prune origin'
-function grefresh() {
+
+# Adds autocomplete to `grefresh`. 
+# NB: Only works if same autocomplete already been used once
+function gref() {
   gc master; gbd $1; gpl; gprune
 }
+compdef __git_branch_names gref
+
+# Initializes customg it autocomplete
+_git 2>/dev/null
 
 # Other
 alias ic="ibmcloud"

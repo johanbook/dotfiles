@@ -7,6 +7,9 @@ set nocompatible
 " Auto read when a file is changed from the outside
 set autoread
 
+" Automatically change cwd
+set autochdir
+
 " Ignore backup files
 set nobackup
 set nowb
