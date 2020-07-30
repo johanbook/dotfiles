@@ -15,12 +15,12 @@ au BufNewFile,BufRead *.py
     \ setlocal number
 
 " HTML/CSS/JS formatting
-au BufNewFile,BufRead *.js,*.jsx,*.html,*.css
+au BufNewFile,BufRead *.js,*.jsx,*.html,*.css,*.ts,*.tsx
     \ setlocal tabstop=2 |
     \ setlocal softtabstop=2 |
     \ setlocal shiftwidth=2
 
-au BufNewFile,BufRead *.js,*.jsx
+au BufNewFile,BufRead *.js,*.jsx,*.ts,*.tsx
     \ setlocal number |
     \ setlocal expandtab
 
