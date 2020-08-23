@@ -233,6 +233,8 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
+let g:coc_user_config = {}
+let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsp'
 let g:coc_global_extensions = [
 \ 'coc-dictionary',
 \ 'coc-docker',
