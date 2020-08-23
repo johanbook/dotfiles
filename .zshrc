@@ -34,4 +34,7 @@ export NVM_DIR="$HOME/.nvm"
 
 xrdb ~/.Xresources
 
+# Unset capslock
+setxkbmap -option '' -option 'ctrl:nocaps'
+
 source ~/.dotfiles/.env
