@@ -7,7 +7,7 @@ function cdp () {
   # Exit current venvs, but also exits current shell
   while [[ "$VIRTUAL_ENV" != "" ]]; do exit; done
 
-  cd "$@"; pipenv shell
+  cd ${1:-.}; pipenv shell
 }
 
 # Clear
@@ -20,7 +20,13 @@ alias ls='colorls  -1 --group-directories-first -X --sort=extension'
 function lw () {
   ls "$@" | wc
 }
-alias gls='ls; echo; gs'
+
+function ser(){
+  find ${2:-.} \
+    \( -type d -name .git  -prune \) \
+    -o \( -type d -name "_*" -prune \) \
+    -o -type f -print0 | xargs -0 sed -i $1
+}
 
 # Docker
 alias dc=' \
