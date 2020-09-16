@@ -66,7 +66,10 @@ alias gprune='git remote prune origin'
 # Adds autocomplete to `grefresh`. 
 # NB: Only works if same autocomplete already been used once
 function gref() {
-  gc master; gbd $1; gpl; gprune
+  gc master
+  [ ! -z "$1" ] && gbd $1
+  gpl
+  gprune
 }
 compdef __git_branch_names gref
 
