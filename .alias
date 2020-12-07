@@ -32,6 +32,10 @@ function ser(){
 alias dc=' \
     docker service rm $(docker service ls -q) || true ; \
     docker stop $(docker ps -aq) || true ; \
+    docker rm $(docker ps -a -q || true) ;'
+alias dc-hard=' \
+    docker service rm $(docker service ls -q) || true ; \
+    docker stop $(docker ps -aq) || true ; \
     docker rm $(docker ps -a -q || true) ; \
     docker network prune -f  || true; \
     docker volume rm $(docker volume ls -q) || true'
@@ -45,7 +49,6 @@ alias gaam='git add -A; git commit'
 alias gb='git branch'
 alias gbd='git branch -d'
 alias gc='git checkout'
-alias gca='git commit --amend --no-edit'
 alias gcm='git commit -m'
 alias gch='git checkout'
 alias gd='git diff'
@@ -63,10 +66,15 @@ alias gsp='git stash pop'
 alias gst='git stash'
 alias gprune='git remote prune origin'
 
+function gca() {
+  if [[ "$(git log -1)" == *"Merge"* ]]; then echo "Cannot amend into merge commit"; else git commit --amend --no-edit; fi
+}
+
 # Adds autocomplete to `grefresh`. 
 # NB: Only works if same autocomplete already been used once
+# gref <branch-to-delete> <branch-to-checkout>
 function gref() {
-  gc master
+  if [ ! -z "$2" ]; then gc $2; else gc master; fi
   [ ! -z "$1" ] && gbd $1
   gpl
   gprune
@@ -85,7 +93,12 @@ screens-separate() {
   xrandr --auto --output eDP-1 --left-of HDMI-2
   xrandr --output HDMI-2 --mode 2560x1440
   feh --bg-scale ~/Pictures/wallpaper.jpeg
+  i3-msg 'workspace "2:  " move to output HDMI-2'
+  i3-msg 'workspace "4:  " move to output HDMI-2'
+  i3-msg 'workspace "5: ﴬ " move to output HDMI-2'
 }
+alias format="npx prettier --write --prose-wrap always"
+alias k8="kubectl"
 
 # Shits and giggles
 alias cmatrix="cmatrix -C blue"
