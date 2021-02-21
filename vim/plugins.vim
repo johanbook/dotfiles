@@ -26,8 +26,6 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
-Plug 'alvan/vim-closetag'
-
 " Highlight current line
 Plug 'miyakogi/conoline.vim'
 
@@ -262,7 +260,7 @@ let g:ale_linters = {'javascript': ['eslint'], 'javascriptreact': ['eslint'], 'p
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
-let g:ale_fixers = {'css': ['prettier'], 'html':['prettier'], 'javascript': ['prettier'], 'javascriptreact': ['prettier'], 'json': ['prettier'], 'python': ['black'], 'typescript': ['prettier'], 'typescriptreact': ['prettier']}
+let g:ale_fixers = {'css': ['prettier'], 'html':['prettier'], 'javascript': ['prettier'], 'javascriptreact': ['prettier'], 'json': ['prettier'], 'markdown':['prettier'],'python': ['black'], 'typescript': ['prettier'], 'typescriptreact': ['prettier']}
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_echo_cursor = 1
