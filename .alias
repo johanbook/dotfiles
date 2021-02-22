@@ -1,4 +1,6 @@
-# Cd
+################################
+# Change directory
+################################
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -10,11 +12,15 @@ function cdp () {
   cd ${1:-.}; pipenv shell
 }
 
+################################
 # Clear
+################################
 alias clr=clear
 alias cls=clear
 
-# Ls
+################################
+# List files
+################################
 alias la='ls -A'
 alias ls='colorls  -1 --group-directories-first -X --sort=extension'
 function lw () {
@@ -28,7 +34,9 @@ function ser(){
     -o -type f -print0 | xargs -0 sed -i $1
 }
 
+################################
 # Docker
+################################
 alias dc=' \
     docker service rm $(docker service ls -q) || true ; \
     docker stop $(docker ps -aq) || true ; \
@@ -40,9 +48,15 @@ alias dc-hard=' \
     docker network prune -f  || true; \
     docker volume rm $(docker volume ls -q) || true'
 alias dl='docker service ls -q | xargs -L 1 docker service logs 2>&1 | grep -i error'
-alias dls='docker image ls' 
+alias dils='docker image ls' 
+alias dcls='docker container ls' 
+alias dps='docker stack ps --format "table  {{.Name}}\t{{.Image}}\t{{.CurrentState}}"'
+alias dsls='docker service ls' 
+alias docker-clear-logs='sh -c "truncate -s 0 /var/lib/docker/containers/*/*-json.log"'
 
+#################################
 # Git
+################################
 alias ga='git add'
 alias gaa='git add -A'
 alias gaam='git add -A; git commit'
@@ -84,8 +98,9 @@ compdef __git_branch_names gref
 # Initializes customg it autocomplete
 _git 2>/dev/null
 
-# Other
-alias ic="ibmcloud"
+#################################
+# Misc
+################################
 alias size="duh -sh"
 alias volume="amixer sset 'Master'"
 alias wifi=nmtui
@@ -126,21 +141,3 @@ extract () {
    fi
 }
 
-################################################
-# Unique to computer Lagrange
-################################################
-
-alias pycharm='nohup bash ~/pycharm/bin/pycharm.sh > /dev/null 2>&1 &'
-#alias jupyter='nohup jupyter notebook > /dev/null 2>&1 &'
-alias key='xclip -sel clip ~/llave/gitlab'
-alias get_paperspace_auth='cat ~/llave/paperspace'
-
-topaperspace () {
-	paperspace jobs create \
-	--machineType GPU+ \
-	--command "$*" \
-	--workspace $PWD \
-	--container "registry.gitlab.com/johanbook/alvis-jta/gpu:latest" \
-	--registryUsername "johan.book@desupervised.io" \
-	--registryPassword $(get_paperspace_auth)
-}
