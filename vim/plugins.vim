@@ -1,3 +1,6 @@
+" Disable ALE LSP before plugins are loaded
+let g:ale_disable_lsp = 1 
+
 """"""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""
@@ -21,13 +24,18 @@ Plug 'gruvbox-community/gruvbox'
 
 " Show git information
 Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'
+
+" Show git diffs
+Plug 'mhinz/vim-signify' 
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Highlight current line
 Plug 'miyakogi/conoline.vim'
+
+" Test runner
+ Plug 'vim-test/vim-test'
 
 call plug#end()
 filetype plugin indent on
@@ -37,14 +45,18 @@ filetype plugin indent on
 " Plugin settings
 """"""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""
 " NetRW file browser
-let g:netrw_banner=0 " hide banner
+""""""""""""""""""""""""""""""""
+let g:netrw_banner=0 " Hide banner
 let g:netrw_browse_split=0 " 0: re-use window, 2: open files in new vsplit
 let g:netrw_altv=0 " I dunno
-let g:netrw_liststyle=3 " show like a tree
+let g:netrw_liststyle=3 " Show like a tree
 "let g:netrw_winsize = 15 "percentual size of window
 
+""""""""""""""""""""""""""""""""
 " Powerline
+""""""""""""""""""""""""""""""""
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 let g:airline_section_z=""
@@ -78,7 +90,9 @@ let g:airline#extensions#tabline#enabled = 1
   let g:airline_symbols.dirty=''
 <
 
+""""""""""""""""""""""""""""""""
 " Color scheme
+""""""""""""""""""""""""""""""""
 set background=dark
 let g:gruvbox_sign_column = 'bg0'
 let g:gruvbox_contrast_dark = 'hard'
@@ -88,78 +102,27 @@ let g:gruvbox_invert_selection = 0
 let g:gruvbox_plugin_hi_groups = 1
 colorscheme gruvbox
 
+
+""""""""""""""""""""""""""""""""
 " Conoline
+""""""""""""""""""""""""""""""""
 let g:conoline_auto_enable = 1
 let g:conoline_use_colorscheme_default_insert=1
 let g:conoline_use_colorscheme_default_normal=1
 
+
+""""""""""""""""""""""""""""""""
 " Git info
+""""""""""""""""""""""""""""""""
 let g:signify_vcs_list = [ 'git' ]
 
-" filenames like *.xml, *.html, *.xhtml, ...
-" These are the file extensions where this plugin is enabled.
-"
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
-" filenames like *.xml, *.xhtml, ...
-" This will make the list of non-closing tags self-closing in the specified files.
-"
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-
-" filetypes like xml, html, xhtml, ...
-" These are the file types where this plugin is enabled.
-"
-let g:closetag_filetypes = 'html,xhtml,phtml'
-
-" filetypes like xml, xhtml, ...
-" This will make the list of non-closing tags self-closing in the specified files.
-"
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-
-" integer value [0|1]
-" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
-"
-let g:closetag_emptyTags_caseSensitive = 1
-
-" dict
-" Disables auto-close if not in a "valid" region (based on filetype)
-"
-let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
-
-" Shortcut for closing tags, default is '>'
-"
-let g:closetag_shortcut = '>'
-
-" Add > at current position without closing the current tag, default is ''
-"
-let g:closetag_close_shortcut = '<leader>>'
-
-filetype on
-
-set hidden
-
-" Some servers have issues with backup files, see #649
-set nobackup
-set nowritebackup
-
-" Better display for messages
-set cmdheight=2
-
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" always show signcolumns
-set signcolumn=yes
-
+""""""""""""""""""""""""""""""""
+" CoC
+""""""""""""""""""""""""""""""""
 function! s:check_back_space() abort
-let col = col('.') - 1
-return !col || getline('.')[col - 1]  =~# '\s'
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Navigate with tab and s-tab
@@ -170,65 +133,18 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[c` and `]c` to navigate diagnostics
-" nmap <silent> [c <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]c <Plug>(coc-diagnostic-next)
-nmap <silent> [c <Plug>(ale_previous_wrap)
-nmap <silent> ]c <Plug>(ale_next_wrap)
-
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <Leader>g <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
-nnoremap <silent> <Leader>k :call <SID>show_documentation()<CR>
-
 function! s:show_documentation()
-if (index(['vim','help'], &filetype) >= 0)
-execute 'h '.expand('<cword>')
-else
-call CocAction('doHover')
-endif
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
 endfunction
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-nmap rn <Plug>(coc-rename)
-
-" Remap for format selected region
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
-
-" augroup mygroup
-" autocmd!
-" " Setup formatexpr specified filetype(s).
-" autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-" " Update signature help on jump placeholder
-" autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-" augroup end
-
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-" nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-" nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Use `:Format` to format current buffer
-" command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` to fold current buffer
-" command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" use `:OR` for organize import of current buffer
-" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+nnoremap <silent> <Leader>k :call <SID>show_documentation()<CR>
 
 let g:coc_user_config = {}
 let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsp'
@@ -250,17 +166,46 @@ let g:coc_global_extensions = [
 \ 'coc-word',
 \ ]
 
-nnoremap <silent> <C-y>  :<C-u>CocList -A --normal yank<cr>
-" command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" Linting
+""""""""""""""""""""""""""""""""
+" Linting (ALE)
+""""""""""""""""""""""""""""""""
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_linters = {'javascript': ['eslint'], 'javascriptreact': ['eslint'], 'python': ['pylint']}
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
-let g:ale_fixers = {'css': ['prettier'], 'html':['prettier'], 'javascript': ['prettier'], 'javascriptreact': ['prettier'], 'json': ['prettier'], 'markdown':['prettier'],'python': ['black'], 'typescript': ['prettier'], 'typescriptreact': ['prettier']}
+let g:ale_fixers = {
+     \ 'css': ['prettier'], 
+      \ 'html':['prettier'], 
+      \ 'javascript': ['prettier'], 
+      \ 'javascriptreact': ['prettier'], 
+      \ 'json': ['prettier'], 
+      \ 'markdown':['prettier'],
+      \ 'python': ['black'], 
+      \ 'typescript': ['prettier'], 
+      \ 'typescriptreact': ['prettier'],
+      \ 'vim': ['prettier']
+\}
 let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0 " Autocompletion is handled by CoC
 let g:ale_echo_cursor = 1
+
+let g:ale_hover_cursor = 1
+let g:ale_set_balloons = 1
+
+" Go to errors
+nmap <silent> <leader>e <Plug>(ale_previous_wrap)
+nmap <silent> <leader>r <Plug>(ale_next_wrap)
+
+
+""""""""""""""""""""""""""""""""
+" Testing (vim-test)
+""""""""""""""""""""""""""""""""
+nmap <silent> <Leader>t :TestNearest<CR> 
+
+let test#strategy = "basic"
+let g:test#javascript#runner = 'reactscripts'
+let test#javascript#reactscripts#options = '--ci'
+" let test#vim#term_position = "belowright"

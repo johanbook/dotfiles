@@ -10,6 +10,9 @@ set autoread
 " Automatically change cwd
 set autochdir
 
+" Better display for messages
+set cmdheight=2
+
 " Ignore backup files
 set nobackup
 set nowb
@@ -39,6 +42,15 @@ set encoding=utf-8
 " Allow for recursive search
 set path+=**
 
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+
 " Show several matches when searching
 set wildmenu
 
@@ -46,10 +58,10 @@ set wildmenu
 set termguicolors
 
 " Activate omnicomplte
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 
 " Use tags
-set tags^=./.git/tags;
+" set tags^=./.git/tags;
 
 source ~/.dotfiles/vim/filetypes.vim
 source ~/.dotfiles/vim/mapping.vim
