@@ -108,6 +108,7 @@ let g:gruvbox_italic = 1
 let g:gruvbox_underline = 1
 let g:gruvbox_invert_selection = 0
 let g:gruvbox_plugin_hi_groups = 1
+let g:gruvbox_termcolors=16
 colorscheme gruvbox
 
 
@@ -214,10 +215,10 @@ nmap <silent> <leader>r <Plug>(ale_next_wrap)
 nmap <silent> <Leader>t :TestNearest<CR> 
 
 let test#strategy = "vimterminal"
-let g:test#javascript#runner = 'reactscripts'
-let test#javascript#reactscripts#options = '--ci'
-" let test#vim#term_position = "belowright"
-let g:test#preserve_screen = 1
+
+" Avoid interactive run as we cannot 
+" interact with it anyways
+let test#javascript#reactscripts#options = '--watchAll=false'
 
 
 """"""""""""""""""""""""""""""""
