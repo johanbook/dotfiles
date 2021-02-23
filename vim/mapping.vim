@@ -15,8 +15,8 @@ map Q <Nop>
 " Saving and exiting
 nmap <leader>w :w<cr>
 nmap <leader>ww :w<cr>
-nmap <leader>wq :wq<cr>
-nmap <leader>q :q!<cr>
+nmap <leader>wq :w<cr> :clo<cr>
+nmap <leader>q :clo<cr>
 
 " Move between windows
 map <C-j> <C-W>j
@@ -43,6 +43,11 @@ inoremap <Down>  <Nop>
 
 " Remove search highlighting
 map <silent> <leader><cr> :noh<cr>
+
+" Terminal keys
+nmap <leader>vt :vert term<cr>
+nmap <leader>xt :term<cr>
+tnoremap <leader>q <C-w><C-c>
 
 " Insert single character
 nnoremap <C-i> i_<Esc>r
