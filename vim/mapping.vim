@@ -25,7 +25,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Can also use Vexplore
-map <C-o> :e .<CR> 
+map <C-o> :GFiles<CR> 
 
 " Move between buffers
 map <leader>l :bnext<cr>

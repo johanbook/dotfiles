@@ -34,6 +34,7 @@ function ser(){
     -o -type f -print0 | xargs -0 sed -i $1
 }
 
+
 ################################
 # Docker
 ################################
@@ -118,6 +119,10 @@ alias k8="kubectl"
 # Shits and giggles
 alias cmatrix="cmatrix -C blue"
 alias star-wars="telnet towel.blinkenlights.nl"
+
+# Remove when using rg by default
+alias grep="echo use rg instead"
+alias rg="rg --color ansi"
 
 # Extract comand
 extract () {

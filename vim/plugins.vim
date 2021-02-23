@@ -34,6 +34,14 @@ Plug 'tpope/vim-commentary'
 " Highlight current line
 Plug 'miyakogi/conoline.vim'
 
+" File navigation
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Start in root folder. Needed for Fzf and vim-test
+" to work properly
+Plug 'airblade/vim-rooter'
+
 " Test runner
  Plug 'vim-test/vim-test'
 
@@ -205,7 +213,36 @@ nmap <silent> <leader>r <Plug>(ale_next_wrap)
 """"""""""""""""""""""""""""""""
 nmap <silent> <Leader>t :TestNearest<CR> 
 
-let test#strategy = "basic"
+let test#strategy = "vimterminal"
 let g:test#javascript#runner = 'reactscripts'
 let test#javascript#reactscripts#options = '--ci'
 " let test#vim#term_position = "belowright"
+let g:test#preserve_screen = 1
+
+
+""""""""""""""""""""""""""""""""
+" Fzf 
+""""""""""""""""""""""""""""""""
+" let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'down': '40%' }
+
+" Window for previewing found match (such as file content)
+let g:fzf_preview_window = ['right:50%:noborder', 'ctrl-/']
+
+" Customize fzf colors to match your color scheme
+" - fzf#wrap translates this to a set of `--color` options
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+

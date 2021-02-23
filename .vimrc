@@ -7,8 +7,9 @@ set nocompatible
 " Auto read when a file is changed from the outside
 set autoread
 
-" Automatically change cwd
-set autochdir
+" We want directory to stay at project root. 
+" This is handled by plugin vim-rooter
+set noautochdir
 
 " Better display for messages
 set cmdheight=2
@@ -54,7 +55,8 @@ set updatetime=300
 " Show several matches when searching
 set wildmenu
 
-" Use true colors
+" Use true colors. Needed for elements to render 
+" with theme colors
 set termguicolors
 
 " Activate omnicomplte
