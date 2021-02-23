@@ -7,6 +7,9 @@ set nocompatible
 " Auto read when a file is changed from the outside
 set autoread
 
+" Use system clipboard
+set clipboard=unnamedplus
+
 " We want directory to stay at project root. 
 " This is handled by plugin vim-rooter
 set noautochdir
