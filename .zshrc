@@ -1,8 +1,18 @@
 # History
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-hist_save_no_dups=1
+HISTSIZE=10000 # max session size
+SAVEHIST=50000 # max file size
+
+## History command configuration
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt INC_APPEND_HISTORY # append into history file
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS  ## Delete empty lines from history file
+setopt HIST_NO_STORE  ## Do not add history and fc commands to the history
 
 # Vim style keys
 bindkey -v

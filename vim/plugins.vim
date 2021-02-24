@@ -142,9 +142,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Remap keys for gotos
-nmap <silent> <Leader>g <Plug>(coc-definition)
-
 " Use K to show documentation in preview window
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -203,10 +200,6 @@ let g:ale_echo_cursor = 1
 
 let g:ale_hover_cursor = 1
 let g:ale_set_balloons = 1
-
-" Go to errors
-nmap <silent> <leader>e <Plug>(ale_previous_wrap)
-nmap <silent> <leader>r <Plug>(ale_next_wrap)
 
 
 """"""""""""""""""""""""""""""""

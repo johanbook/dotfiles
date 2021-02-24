@@ -22,9 +22,14 @@ nmap <Leader>wq :w<CR> :clo<CR>
 tnoremap <Leader>q <C-w><C-c>
 nmap <Leader>q :clo<CR> 
 
+
+" Remap keys for gotos
+tnoremap <silent> <Leader>g :vertical wincmd f<CR>
+nmap <silent> <Leader>g <Plug>(coc-definition)
+
 " When opening files, do so in new vert
-nmap gf :vertical wincmd<CR>
-" nmap <C-w>f :vertical wincmd<CR>
+map <silent> gf :vertical wincmd f<CR>
+" mp <C-w>f :vertical wincmd f<CR>
 
 " Move between windows
 map <C-j> <C-W>j
@@ -39,7 +44,11 @@ tmap <C-h> <C-W>h
 tmap <C-l> <C-W>l
 
 " Explore files
-map <C-o> :GFiles<CR> 
+map <C-p> :GFiles<CR> 
+
+" View folder of current buffer
+noremap <C-o> :e %:h<CR>
+" noremap <C-o>v :vert e %:h<CR>
 
 " Get off my lawn
 nnoremap <Left>     :echoerr "Use h"<CR>
@@ -52,11 +61,21 @@ inoremap <Up>    <Nop>
 inoremap <Down>  <Nop>
 
 " Remove search highlighting
-map <Silent> <Leader><CR> :noh<CR>
+map <silent> <Leader><CR> :noh<CR>
 
 " Terminal keys
-nmap <Leader>t :vert term<CR> 
+abbreviate vterm vert term
 nmap <Leader>vt :vert term<CR>
 nmap <Leader>xt :term<CR>
 tnoremap <ESC> <C-w>N
 tnoremap jk <C-w>N
+
+
+nmap <Leader>b :Buffers<CR> 
+nmap <Leader>t :TestFile<CR> 
+
+" Navigate errors
+nmap <silent> <leader>e <Plug>(ale_next_wrap)
+nmap <silent> <leader>E <Plug>(ale_previous_wrap)
+
+abbreviate EditVimrc e ~/.vimrc
