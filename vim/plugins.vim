@@ -212,8 +212,6 @@ nmap <silent> <leader>r <Plug>(ale_next_wrap)
 """"""""""""""""""""""""""""""""
 " Testing (vim-test)
 """"""""""""""""""""""""""""""""
-nmap <silent> <Leader>t :TestNearest<CR> 
-
 let test#strategy = "vimterminal"
 
 " Avoid interactive run as we cannot 
