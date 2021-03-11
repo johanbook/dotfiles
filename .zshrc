@@ -1,18 +1,36 @@
+################################
 # History
+################################
 HISTFILE=~/.histfile
 HISTSIZE=10000 # max session size
 SAVEHIST=50000 # max file size
 
-## History command configuration
-setopt extended_history       # record timestamp of command in HISTFILE
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups       # ignore duplicated commands history list
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_verify            # show command with history expansion to user before running it
-setopt INC_APPEND_HISTORY # append into history file
+# Append to history instead of rewriting it, useful when having multiple
+# concurrent terminals
+setopt APPEND_HISTORY 
+
+# Record command timestamps 
+setopt EXTENDED_HISTORY       
+
+# Append into history file immediately instead on shell exit
+# Useful when running concurrent terminals or unexpected exits
+# setopt INC_APPEND_HISTORY 
+
+# Ignore
 setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_REDUCE_BLANKS  ## Delete empty lines from history file
-setopt HIST_NO_STORE  ## Do not add history and fc commands to the history
+
+# Ignore commands that start with space
+setopt HIST_IGNORE_SPACE      
+
+# Delete empty lines and spaces from history file
+setopt HIST_REDUCE_BLANKS  
+
+setopt SHARE_HISTORY
+
+
+################################
+# General
+################################
 
 # Vim style keys
 bindkey -v
@@ -44,7 +62,8 @@ export NVM_DIR="$HOME/.nvm"
 
 xrdb ~/.Xresources
 
-# Unset capslock
-setxkbmap -option '' -option 'ctrl:nocaps'
-
+# Load private envs
 source ~/.dotfiles/.env
+
+# Unset capslock because it causes more trouble then it gives
+setxkbmap -option '' -option 'ctrl:nocaps'

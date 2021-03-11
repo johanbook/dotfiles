@@ -38,21 +38,36 @@ function ser(){
 ################################
 # Docker
 ################################
-alias dc=' \
-    docker service rm $(docker service ls -q) || true ; \
-    docker stop $(docker ps -aq) || true ; \
-    docker rm $(docker ps -a -q || true) ;'
-alias dc-hard=' \
-    docker service rm $(docker service ls -q) || true ; \
-    docker stop $(docker ps -aq) || true ; \
-    docker rm $(docker ps -a -q || true) ; \
-    docker network prune -f  || true; \
-    docker volume rm $(docker volume ls -q) || true'
+# Soft docker cleanup
+function dc (){ 
+    local services=$(docker service ls -q)
+    [ -s "$services" ] && docker service rm $services 
+
+    local running=$(docker ps -aq) 
+    [ -s "$running" ] && docker stop $running
+
+    local prs=$(docker ps -a -q) 
+    [ -s "$prs" ] && docker rm $prs
+
+    echo "Cleaned Docker"
+}
+# Hard docker cleanup
+function dc-hard (){ \
+    dc();
+    docker network prune -f  
+
+    local volumes=$(docker volume ls -q)
+    [-s "$volumes" ] && docker volume rm $volumes 
+}
+
 alias dl='docker service ls -q | xargs -L 1 docker service logs 2>&1 | grep -i error'
 alias dils='docker image ls' 
 alias dcls='docker container ls' 
 alias dps='docker stack ps --format "table  {{.Name}}\t{{.Image}}\t{{.CurrentState}}"'
 alias dsls='docker service ls' 
+
+# I've had problems with containers not producing logs
+# this hacky alias fixes that by removing all logs (!)
 alias docker-clear-logs='sh -c "truncate -s 0 /var/lib/docker/containers/*/*-json.log"'
 
 #################################
@@ -81,6 +96,7 @@ alias gsp='git stash pop'
 alias gst='git stash'
 alias gprune='git remote prune origin'
 
+# Commit current changes into previous commit
 function gca() {
   if [[ "$(git log -1)" == *"Merge"* ]]; then echo "Cannot amend into merge commit"; else git commit --amend --no-edit; fi
 }
@@ -122,6 +138,7 @@ alias star-wars="telnet towel.blinkenlights.nl"
 
 # Remove when using rg by default
 alias grep="echo use rg instead"
+
 alias rg="rg --color ansi"
 
 # Extract comand
