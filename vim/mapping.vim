@@ -1,6 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""
 " Mappings
-""""""""""""""""""""""""""""""""""""""""
+"""
+"""""""""""""""""""""""""""""""""""""
 let mapleader = ","
 
 " Remap escape
@@ -80,3 +81,24 @@ nmap <silent> <leader>e <Plug>(ale_next_wrap)
 nmap <silent> <leader>E <Plug>(ale_previous_wrap)
 
 abbreviate EditVimrc e ~/.vimrc
+
+" Git aliases
+abbreviate Ga G add
+abbreviate Gaa G add -A
+abbreviate Gbd G branch -d
+abbreviate Gc G checkout
+abbreviate Gcm G commit -m
+abbreviate Gd G diff
+abbreviate Gdc G diff --cached
+abbreviate Gdb Gbd
+abbreviate Gcb G checkout -b
+abbreviate Gcnb Gcb
+abbreviate Gl G log -25 --graph --oneline --decorate --pretty=format:"%C(yellow)%h - %C(green)%cn %C(reset)%s %C(blue bold)%d"
+abbreviate Gp G push
+abbreviate Gpl G pull
+abbreviate Gr G rebase
+abbreviate Gri G rebase -i
+abbreviate Gsp G stash pop
+abbreviate Gst G stash
+abbreviate Gprune G remote prune origin
+
