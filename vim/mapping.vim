@@ -47,8 +47,9 @@ tmap <C-l> <C-W>l
 map <C-p> :GFiles<CR> 
 
 " View folder of current buffer
-noremap <C-o> :e %:h<CR>
-" noremap <C-o>v :vert e %:h<CR>
+" Capital E will open hidden buffer
+noremap <C-o> :Explore %:h<CR>
+noremap <C-o>v :Vexplore %:h<CR>
 
 " Get off my lawn
 nnoremap <Left>     :echoerr "Use h"<CR>

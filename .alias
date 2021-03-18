@@ -123,7 +123,7 @@ alias volume="amixer sset 'Master'"
 alias wifi=nmtui
 screens-separate() {
   xrandr --auto --output eDP-1 --left-of HDMI-2
-  xrandr --output HDMI-2 --mode 2560x1440
+  xrandr --output HDMI-2 --mode 3840x2160
   feh --bg-scale ~/Pictures/wallpaper.jpeg
   i3-msg 'workspace "2:  " move to output HDMI-2'
   i3-msg 'workspace "4:  " move to output HDMI-2'
