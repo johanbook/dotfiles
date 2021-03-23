@@ -66,14 +66,16 @@ inoremap <Down>  <Nop>
 map <silent> <Leader><CR> :noh<CR>
 
 " Terminal keys
+abbreviate cterm term ++curwin
 abbreviate vterm vert term
 nmap <Leader>vt :vert term<CR>
 nmap <Leader>xt :term<CR>
-tnoremap <ESC> <C-w>N
+tnoremap <ESC> <C-w>N 
 tnoremap jk <C-w>N
 
 
 nmap <Leader>b :Buffers<CR> 
+nmap <Leader>l :Lines<CR> 
 nmap <Leader>t :TestFile<CR> 
 
 " Navigate errors
