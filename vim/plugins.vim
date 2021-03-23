@@ -153,7 +153,7 @@ endfunction
 nnoremap <silent> <Leader>k :call <SID>show_documentation()<CR>
 
 let g:coc_user_config = {}
-let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsp'
+let g:coc_user_config['coc.preferences.jumpCommand'] = 'edit'
 let g:coc_global_extensions = [
 \ 'coc-dictionary',
 \ 'coc-docker',
@@ -189,7 +189,7 @@ let g:ale_fixers = {
       \ 'javascriptreact': ['prettier'], 
       \ 'json': ['prettier'], 
       \ 'markdown':['prettier'],
-      \ 'python': ['black'], 
+      \ 'python': ['black', 'isort'], 
       \ 'typescript': ['prettier'], 
       \ 'typescriptreact': ['prettier'],
       \ 'vim': ['prettier']
