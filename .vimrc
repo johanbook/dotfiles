@@ -37,6 +37,9 @@ set incsearch
 " Don't redraw while executing macros (good performance config)
 set lazyredraw 
 
+" Show line numbers
+set number
+
 " Keep some lines as marginals when scrolling
 set so=7
 

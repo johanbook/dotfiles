@@ -2,7 +2,9 @@
 " File specific formatting
 """"""""""""""""""""""""""""""""""""""""
 
-autocmd BufRead,BufNewFIle *.md,*.txt setlocal spell
+autocmd BufRead,BufNewFIle *.md,*.txt 
+   \ setlocal spell |
+   \ setlocal nonumber |
 
 " Python formatting
 au BufNewFile,BufRead *.py
@@ -12,7 +14,6 @@ au BufNewFile,BufRead *.py
     \ setlocal expandtab |
     \ setlocal autoindent |
     \ setlocal fileformat=unix |
-    \ setlocal number
 
 " HTML/CSS/JS formatting
 au BufNewFile,BufRead *.js,*.jsx,*.html,*.css,*.ts,*.tsx
@@ -21,7 +22,6 @@ au BufNewFile,BufRead *.js,*.jsx,*.html,*.css,*.ts,*.tsx
     \ setlocal shiftwidth=2
 
 au BufNewFile,BufRead *.js,*.jsx,*.ts,*.tsx
-    \ setlocal number |
     \ setlocal expandtab
 
 " Force to use underline for spell check results
