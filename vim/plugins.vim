@@ -45,6 +45,9 @@ Plug 'airblade/vim-rooter'
 " Test runner
  Plug 'vim-test/vim-test'
 
+" Plugin for easily switch between related files
+ Plug 'tpope/vim-projectionist'
+
 call plug#end()
 filetype plugin indent on
 
@@ -153,7 +156,7 @@ endfunction
 nnoremap <silent> <Leader>k :call <SID>show_documentation()<CR>
 
 let g:coc_user_config = {}
-let g:coc_user_config['coc.preferences.jumpCommand'] = 'edit'
+let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsp'
 let g:coc_global_extensions = [
 \ 'coc-dictionary',
 \ 'coc-docker',
@@ -200,6 +203,22 @@ let g:ale_echo_cursor = 1
 
 let g:ale_hover_cursor = 1
 let g:ale_set_balloons = 1
+
+
+""""""""""""""""""""""""""""""""
+" Projectionist
+""""""""""""""""""""""""""""""""
+let g:projectionist_heuristics = {
+      \ "*": {
+      \ "*.js": {"alternate": "{}.test.js", "type": "source"},
+      \ "*.jsx": {"alternate": "{}.test.jsx", "type": "source"},
+      \ "*.ts": {"alternate": "{}.test.ts", "type": "source"},
+      \ "*.tsx": {"alternate": "{}.test.tsx", "type": "source"},
+      \ "*.test.js": {"alternate": "{}.js", "type": "test"},
+      \ "*.test.jsx": {"alternate": "{}.jsx", "type": "test"},
+      \ "*.test.ts": {"alternate": "{}.ts", "type": "test"},
+      \ "*.test.tsx": {"alternate": "{}.tsx", "type": "test"}
+      \}} 
 
 
 """"""""""""""""""""""""""""""""
