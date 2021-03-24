@@ -177,6 +177,23 @@ bindsym Mod1+X exec i3lock -c '#1D2021'
 
 
 #######################################################################
+# Keyboard locale
+#######################################################################
+set $mode_keyboard Keyboard Layout: (u)s, (s)we, (c)olemark
+mode "$mode_keyboard" {
+    bindsym u exec --no-startup-id setxkbmap us , mode "default"
+    bindsym s exec --no-startup-id setxkbmap se , mode "default"
+    bindsym c exec --no-startup-id setxkbmap us -variant colemak , mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+# Declare here the shortcut to bring the display selection menu
+bindsym $mod+n mode "$mode_keyboard"
+
+
+#######################################################################
 # Theme
 #######################################################################
 # font used by i3 for titles and bars
