@@ -25,3 +25,11 @@ ln -sf $(pwd)/.zshrc ~/.zshrc
 
 echo "Installation complete"
 echo "Restart all terminals for effects to take place"
+
+# Spotify CLI
+# TODO: rename to spotify-cli. Should move file to bin
+# and remove remaining files
+git clone https://gist.github.com/fa6258f3ff7b17747ee3.git
+cd ./fa6258f3ff7b17747ee3
+chmod +x
+sudo ln -s ./sp /usr/local/bin/
