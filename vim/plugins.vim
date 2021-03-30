@@ -217,7 +217,9 @@ let g:projectionist_heuristics = {
       \ "*.test.js": {"alternate": "{}.js", "type": "test"},
       \ "*.test.jsx": {"alternate": "{}.jsx", "type": "test"},
       \ "*.test.ts": {"alternate": "{}.ts", "type": "test"},
-      \ "*.test.tsx": {"alternate": "{}.tsx", "type": "test"}
+      \ "*.test.tsx": {"alternate": "{}.tsx", "type": "test"},
+      \ "test_*.py": {"alternate": "{file|dirname|dirname}/{basename}.py", "type": "source"},
+      \ "*.py": {"alternate": "{dirname}/test/test_{basename}.py", "type": "test"}
       \}} 
 
 
@@ -229,6 +231,7 @@ let test#strategy = "vimterminal"
 " Avoid interactive run as we cannot 
 " interact with it anyways
 let test#javascript#reactscripts#options = '--watchAll=false'
+let test#python#pytest#options = '-s'
 
 
 """"""""""""""""""""""""""""""""
