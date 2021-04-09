@@ -6,6 +6,8 @@ let mapleader = ","
 
 " Remap escape
 inoremap jk <ESC>
+tnoremap <ESC> <C-w>N 
+tnoremap jk <C-w>N
 
 " Unset recording, as I never use that
 map q <Nop> 
@@ -44,14 +46,6 @@ tmap <C-k> <C-W>k
 tmap <C-h> <C-W>h
 tmap <C-l> <C-W>l
 
-" Explore files
-map <C-p> :GFiles<CR> 
-
-" View folder of current buffer
-" Capital E will open hidden buffer
-noremap <C-o> :Explore %:h<CR>
-noremap <C-o>v :Vexplore %:h<CR>
-
 " Get off my lawn
 nnoremap <Left>     :echoerr "Use h"<CR>
 nnoremap <Right>    :echoerr "Use l"<CR>
@@ -62,21 +56,23 @@ inoremap <Right> <Nop>
 inoremap <Up>    <Nop>
 inoremap <Down>  <Nop>
 
-" Remove search highlighting
-map <silent> <Leader><CR> :noh<CR>
-
 " Terminal keys
 abbreviate cterm term ++curwin
 abbreviate vterm vert term
 nmap <Leader>vt :vert term<CR>
 nmap <Leader>xt :term<CR>
-tnoremap <ESC> <C-w>N 
-tnoremap jk <C-w>N
 
-
+" Explore 
+map <C-p> :GFiles<CR> 
 nmap <Leader>b :Buffers<CR> 
 nmap <Leader>l :Lines<CR> 
 nmap <Leader>t :TestFile<CR> 
+
+" View folder of current buffer
+" Capital E will open hidden buffer
+noremap <C-o> :Explore %:h<CR>
+noremap <C-o>v :Vexplore %:h<CR>
+
 
 " Navigate errors
 nmap <silent> <leader>e <Plug>(ale_next_wrap)
