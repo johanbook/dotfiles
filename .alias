@@ -57,7 +57,7 @@ function dc-hard (){ \
     docker network prune -f  
 
     local volumes=$(docker volume ls -q)
-    [-s "$volumes" ] && docker volume rm $volumes 
+    [ -s "$volumes" ] && docker volume rm $volumes 
 }
 
 alias dl='docker service ls -q | xargs -L 1 docker service logs 2>&1 | grep -i error'

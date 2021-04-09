@@ -63,6 +63,11 @@ set wildmenu
 " with theme colors
 set termguicolors
 
+" Vim wraps long line by default, which behaves
+" funky when viewing e.g. minified JS. It can 
+" instead be turned on on a buffer-basis
+set nowrap
+
 " Activate omnicomplte
 " set omnifunc=syntaxcomplete#Complete
 
