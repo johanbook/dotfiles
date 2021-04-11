@@ -60,3 +60,6 @@ augroup SpellUnderline
     \   gui=Undercurl
     \   guisp=Red
   augroup END
+
+" No line numbers in terminal
+autocmd TerminalOpen * set nonumber
