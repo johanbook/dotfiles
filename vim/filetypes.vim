@@ -6,15 +6,6 @@ autocmd BufRead,BufNewFIle *.md,*.txt
    \ setlocal spell |
    \ setlocal nonumber |
 
-" Python formatting
-au BufNewFile,BufRead *.py
-    \ setlocal tabstop=4 |
-    \ setlocal softtabstop=4 |
-    \ setlocal shiftwidth=4 |
-    \ setlocal expandtab |
-    \ setlocal autoindent |
-    \ setlocal fileformat=unix |
-
 " HTML/CSS/JS formatting
 au BufNewFile,BufRead *.js,*.jsx,*.html,*.css,*.ts,*.tsx
     \ setlocal tabstop=2 |
