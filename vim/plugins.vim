@@ -6,7 +6,7 @@ let g:ale_disable_lsp = 1
 """"""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-" Linting
+" Linting and formatting
 Plug 'dense-analysis/ale'
 
 " Autocomplete
@@ -48,6 +48,9 @@ Plug 'airblade/vim-rooter'
 " Plugin for easily switch between related files
  Plug 'tpope/vim-projectionist'
 
+" Fancy start screen
+Plug 'mhinz/vim-startify'
+
 call plug#end()
 filetype plugin indent on
 
@@ -66,40 +69,64 @@ let g:netrw_liststyle=3 " Show like a tree
 "let g:netrw_winsize = 15 "percentual size of window
 
 """"""""""""""""""""""""""""""""
-" Powerline
+" Airline
 """"""""""""""""""""""""""""""""
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
-let g:airline_section_z=""
-let g:airline_section_error=""
-let g:airline_section_warning=""
 let g:airline_skip_empty_sections = 1
+
+" NB: Defined inside autocmd to support lazyily loading plugins
+function! AirlineInit()
+  let g:airline_section_a = airline#section#create(["mode"])
+  let g:airline_section_c = airline#section#create(["crypt", "spell", " ", "ale_warning_count", " ", "ale_error_count"])
+  let g:airline_section_y = ""
+  let g:airline_section_z = ""
+  let g:airline_section_error=""
+  let g:airline_section_warning=""
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+
+
+" Very seldom needed
+let g:airline#extensions#wordcount#enabled = 0
+
+" Tabline
 let g:airline#extensions#tabline#enabled = 1
->
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
 
-  " unicode symbols
-  let g:airline_symbols.crypt = '🔒'
-  let g:airline_symbols.paste = 'ρ'
-  let g:airline_symbols.paste = 'Þ'
-  let g:airline_symbols.paste = '∥'
-  let g:airline_symbols.spell = 'Ꞩ'
-  let g:airline_symbols.notexists = 'Ɇ'
-  let g:airline_symbols.whitespace = 'Ξ'
+" I have no clue what this is doing but sure
+let g:airline#extensions#fzf#enabled = 1
 
-  " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = '☰'
-  let g:airline_symbols.maxlinenr = ''
-  let g:airline_symbols.dirty=''
-<
+" Skip showing number of changed lines etc
+let g:airline#extensions#hunks#enabled = 0
+
+" ALE Integration
+let airline#extensions#ale#error_symbol = '❌:'
+let airline#extensions#ale#warning_symbol = '⚠️ :'
+let airline#extensions#ale#show_line_numbers = 0
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = '暈'
+let g:airline_symbols.notexists = '?'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty='!'
 
 """"""""""""""""""""""""""""""""
 " Color scheme
@@ -206,9 +233,10 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0 " Autocompletion is handled by CoC
 let g:ale_echo_cursor = 1
-
 let g:ale_hover_cursor = 1
-let g:ale_set_balloons = 1
+
+" Custom CLI options
+let g:ale_javascript_prettier_options = "--prose-wrap always" 
 
 
 """"""""""""""""""""""""""""""""

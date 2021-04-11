@@ -137,7 +137,7 @@ alias cmatrix="cmatrix -C blue"
 alias star-wars="telnet towel.blinkenlights.nl"
 
 # TODO: Remove once I started usig rg by habit
-alias grep="echo use `rg` instead"
+alias grep="echo use 'rg' instead"
 
 alias rg="rg --color ansi"
 

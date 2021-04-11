@@ -70,8 +70,8 @@ nmap <Leader>t :TestFile<CR>
 
 " View folder of current buffer
 " Capital E will open hidden buffer
-noremap <C-o> :Explore %:h<CR>
-noremap <C-o>v :Vexplore %:h<CR>
+noremap <Leader>o :Explore %:h<CR>
+noremap <Leader>ov :Vexplore %:h<CR>
 
 
 " Navigate errors
