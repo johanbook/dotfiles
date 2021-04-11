@@ -112,7 +112,7 @@ function gref() {
 }
 compdef __git_branch_names gref
 
-# Initializes customg it autocomplete
+# Initializes custom it autocomplete
 _git 2>/dev/null
 
 #################################
@@ -136,8 +136,8 @@ alias k8="kubectl"
 alias cmatrix="cmatrix -C blue"
 alias star-wars="telnet towel.blinkenlights.nl"
 
-# Remove when using rg by default
-alias grep="echo use rg instead"
+# TODO: Remove once I started usig rg by habit
+alias grep="echo use `rg` instead"
 
 alias rg="rg --color ansi"
 
