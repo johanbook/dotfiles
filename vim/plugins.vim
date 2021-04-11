@@ -294,3 +294,34 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+
+""""""""""""""""""""""""""""""""
+" vim-startify
+""""""""""""""""""""""""""""""""
+let g:startify_fortune_use_unicode = 1
+let g:startify_custom_header = ''
+let g:startify_change_to_dir = 1 
+let g:startify_change_to_vcs_root = 1
+let g:startify_lists= [
+      \ { 'header': ['  Commands'], 'type': 'commands'},
+      \ { 'header': ['  Recent in '. getcwd()], 'type': 'dir'},
+      \ { 'header': ['  Projects'], 'type': 'bookmarks'},
+\ ]
+
+
+let g:startify_commands= [
+      \ ["Git", "G"],
+      \ ["GFiles", "GFiles"],
+      \ ["Files", "Files"],
+      \ ["Rg", "Rg"]
+\ ]
+
+
+" Unique to computer Lagrande
+let g:startify_bookmarks= [
+      \ { ".": "~/.dotfiles" },
+      \ { "c": "~/capabilities" },
+      \ { "a": "~/d2api" },
+      \ { "u": "~/d2ui" },
+      \ { "m": "~/mynstur" },
+\ ]
