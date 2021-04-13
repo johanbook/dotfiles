@@ -1,5 +1,5 @@
 " Disable ALE LSP before plugins are loaded
-let g:ale_disable_lsp = 1 
+let g:ale_disable_lsp = 1
 
 """"""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -26,7 +26,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
 
 " Show git diffs
-Plug 'mhinz/vim-signify' 
+Plug 'mhinz/vim-signify'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -60,29 +60,66 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""
+" Color scheme
+""""""""""""""""""""""""""""""""
+set background=dark
+let g:gruvbox_sign_column = 'bg0'
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italic = 1
+let g:gruvbox_underline = 1
+let g:gruvbox_invert_selection = 0
+let g:gruvbox_plugin_hi_groups = 1
+let g:gruvbox_termcolors=16
+colorscheme gruvbox
+
+
+""""""""""""""""""""""""""""""""
 " NetRW file browser
 """"""""""""""""""""""""""""""""
-let g:netrw_banner=0 " Hide banner
-let g:netrw_browse_split=0 " 0: re-use window, 2: open files in new vsplit
-let g:netrw_altv=0 " I dunno
-let g:netrw_liststyle=3 " Show like a tree
+let g:netrw_altv = 0 " I dunno
+let g:netrw_banner = 0 " Hide banner
+let g:netrw_browse_split = 0 " 0: re-use window, 2: open files in new vsplit
+let g:netrw_liststyle = 3 " Show like a tree
 "let g:netrw_winsize = 15 "percentual size of window
+
 
 """"""""""""""""""""""""""""""""
 " Airline
 """"""""""""""""""""""""""""""""
-let g:airline_theme='gruvbox'
+let g:airline_theme='base16_gruvbox_dark_hard'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
+
+function! VenvReporter()
+  if &filetype != "python"
+    return ""
+  endif
+
+  let venv = $VIRTUAL_ENV
+  if empty(venv)
+    return ""
+  endif
+
+  " Name is on format a/b/c/a-t-d...
+  " This creates a prefix
+  let parts = split(venv, "/")[-1]
+  let prefix = split(parts, "-")[0]
+  return printf("%s%s", g:airline_symbols.python, prefix)
+endfunction
+
+" let g:airline#themes#base16_gruvbox_dark_hard#palette.accents.blue = [ '#ff0000' , '' , 160 , ''  ]
+
+call airline#parts#define_function('venv', 'VenvReporter')
+" call airline#parts#define_accent('venv', 'red')
+
 
 " NB: Defined inside autocmd to support lazyily loading plugins
 function! AirlineInit()
   let g:airline_section_a = airline#section#create(["mode"])
-  let g:airline_section_c = airline#section#create(["crypt", "spell", " ", "ale_warning_count", " ", "ale_error_count"])
+  let g:airline_section_c = airline#section#create(["crypt", "spell", " ", "linenr"])
+  let g:airline_section_x = airline#section#create(["filetype", " ", "venv"])
   let g:airline_section_y = ""
   let g:airline_section_z = ""
-  let g:airline_section_error=""
-  let g:airline_section_warning=""
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 
@@ -119,27 +156,13 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " powerline symbols
 let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='!'
-
-""""""""""""""""""""""""""""""""
-" Color scheme
-""""""""""""""""""""""""""""""""
-set background=dark
-let g:gruvbox_sign_column = 'bg0'
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_italic = 1
-let g:gruvbox_underline = 1
-let g:gruvbox_invert_selection = 0
-let g:gruvbox_plugin_hi_groups = 1
-let g:gruvbox_termcolors=16
-colorscheme gruvbox
+let g:airline_symbols.python = ' '
 
 
 """"""""""""""""""""""""""""""""
@@ -211,32 +234,37 @@ let g:ale_sign_error = '❌'
 let g:ale_sign_info = ''
 let g:ale_sign_warning = '⚠️'
 let g:ale_linters = {
-      \ 'javascript': ['eslint'], 
-      \ 'javascriptreact': ['eslint'], 
+      \ 'javascript': ['eslint'],
+      \ 'javascriptreact': ['eslint'],
       \ 'python': ['pylint']
 \}
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_fixers = {
-     \ 'css': ['prettier'], 
-      \ 'html':['prettier'], 
-      \ 'javascript': ['prettier'], 
-      \ 'javascriptreact': ['prettier'], 
-      \ 'json': ['prettier'], 
+ \ "*": ["trim_whitespace"],
+     \ 'css': ['prettier'],
+      \ 'html':['prettier'],
+      \ 'javascript': ['prettier'],
+      \ 'javascriptreact': ['prettier'],
+      \ 'json': ['prettier'],
       \ 'markdown':['prettier'],
-      \ 'python': ['black', 'isort'], 
-      \ 'typescript': ['prettier'], 
-      \ 'typescriptreact': ['prettier'],
-      \ 'vim': ['prettier']
+      \ 'python': ['black', 'isort'],
+      \ 'typescript': ['prettier'],
+      \ 'typescriptreact': ['prettier']
 \}
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0 " Autocompletion is handled by CoC
 let g:ale_echo_cursor = 1
 let g:ale_hover_cursor = 1
 
+" Python envs are handled by pipenv
+let g:ale_virtualenv_dir_names = [ ]
+let g:ale_python_auto_pipenv = 1
+let g:ale_python_pylint_auto_pipenv = 1
+
 " Custom CLI options
-let g:ale_javascript_prettier_options = "--prose-wrap always" 
+let g:ale_javascript_prettier_options = "--prose-wrap always"
 
 
 """"""""""""""""""""""""""""""""
@@ -254,7 +282,7 @@ let g:projectionist_heuristics = {
       \ "*.test.tsx": {"alternate": "{}.tsx", "type": "test"},
       \ "test_*.py": {"alternate": "{file|dirname|dirname}/{basename}.py", "type": "source"},
       \ "*.py": {"alternate": "{dirname}/test/test_{basename}.py", "type": "test"}
-      \}} 
+      \}}
 
 
 """"""""""""""""""""""""""""""""
@@ -262,14 +290,14 @@ let g:projectionist_heuristics = {
 """"""""""""""""""""""""""""""""
 let test#strategy = "vimterminal"
 
-" Avoid interactive run as we cannot 
+" Avoid interactive run as we cannot
 " interact with it anyways
 let test#javascript#reactscripts#options = '--watchAll=false'
 let test#python#pytest#options = '-s'
 
 
 """"""""""""""""""""""""""""""""
-" Fzf 
+" Fzf
 """"""""""""""""""""""""""""""""
 " let g:fzf_layout = { 'window': 'enew' }
 let g:fzf_layout = { 'down': '40%' }
@@ -300,7 +328,7 @@ let g:fzf_colors =
 """"""""""""""""""""""""""""""""
 let g:startify_fortune_use_unicode = 1
 let g:startify_custom_header = ''
-let g:startify_change_to_dir = 1 
+let g:startify_change_to_dir = 1
 let g:startify_change_to_vcs_root = 1
 let g:startify_lists= [
       \ { 'header': ['  Commands'], 'type': 'commands'},
@@ -325,3 +353,4 @@ let g:startify_bookmarks= [
       \ { "u": "~/d2ui" },
       \ { "m": "~/mynstur" },
 \ ]
+
