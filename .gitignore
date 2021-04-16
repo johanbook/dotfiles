@@ -4,4 +4,5 @@ vim/bundle
 vim/plugged
 vim/vim
 vim/.netrwhist
+vim/.netrwbook
 .env
