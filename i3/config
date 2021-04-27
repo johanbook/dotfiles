@@ -117,7 +117,7 @@ bindsym Mod1+5 workspace $ws5
 bindsym Mod1+6 workspace $ws6
 bindsym Mod1+7 workspace $ws7
 bindsym Mod1+8 workspace $ws8
-bindsym Mod1+9 workspace $ws9 
+bindsym Mod1+9 workspace $ws9
 bindsym Mod1+0 workspace $ws10
 
 # move focused container to workspace
@@ -184,6 +184,7 @@ set $red #cc241d
 set $green #98971a
 set $yellow #d79921
 set $blue #458588
+set $white #282828
 set $purple #b16286
 set $aqua #689D6A
 set $gray #a89984
@@ -200,22 +201,22 @@ client.urgent           $red $red $white $red $red
 # Status bar
 # Format border, bground, text
 # font pango:FontAwesome 10
-bar {
-        status_command i3blocks
-	font pango:DroidSansMono Nerd Font 10
-	colors {
-	    background #1d2021
-	    statusline #FFFFFF
-	    separator  #666666
+# bar {
+#         status_command i3blocks
+# 	font pango:DroidSansMono Nerd Font 10
+# 	colors {
+# 	    background #1d2021
+# 	    statusline #FFFFFF
+# 	    separator  #666666
 
-	    focused_workspace  $darkgray $darkgray $yellow
-	    active_workspace   $darkgray $darkgray $blue
-	    inactive_workspace $darkgray $darkgray $gray
-	    urgent_workspace   $red $red $white
-	    binding_mode       $red $red $purple
-	  }
-}
+# 	    focused_workspace  $darkgray $darkgray $yellow
+# 	    active_workspace   $darkgray $darkgray $blue
+# 	    inactive_workspace $darkgray $darkgray $gray
+# 	    urgent_workspace   $red $red $white
+# 	    binding_mode       $red $red $purple
+# 	  }
+# }
 
 # Set background image
-exec feh --bg-scale ~/Pictures/wallpaper.jpeg
+# exec feh --bg-scale ~/Pictures/wallpaper.jpeg
 
