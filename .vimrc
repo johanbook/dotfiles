@@ -10,7 +10,7 @@ set autoread
 " Use system clipboard
 set clipboard=unnamedplus
 
-" We want directory to stay at project root. 
+" We want directory to stay at project root.
 " This is handled by plugin vim-rooter
 set noautochdir
 
@@ -25,15 +25,15 @@ set noswapfile
 " Ignore case when searching
 set ignorecase
 
-" Use case-sensative search iff query contains 
+" Use case-sensative search iff query contains
 " uppercase letters
 set smartcase
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " Show line numbers
 set number
@@ -59,12 +59,11 @@ set updatetime=300
 " Show several matches when searching
 set wildmenu
 
-" Use true colors. Needed for elements to render 
-" with theme colors
-set termguicolors
+" True colors does not work in new setup
+" set termguicolors
 
 " Vim wraps long line by default, which behaves
-" funky when viewing e.g. minified JS. It can 
+" funky when viewing e.g. minified JS. It can
 " instead be turned on on a buffer-basis
 set nowrap
 
@@ -78,4 +77,3 @@ source ~/.dotfiles/vim/filetypes.vim
 source ~/.dotfiles/vim/mapping.vim
 source ~/.dotfiles/vim/plugins.vim
 source ~/.dotfiles/vim/snippets.vim
-
