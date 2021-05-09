@@ -9,8 +9,10 @@ function cdp () {
   # Exit current venvs, but also exits current shell
   while [[ "$VIRTUAL_ENV" != "" ]]; do exit; done
 
-  cd ${1:-.}; pipenv shell
+  cd ${1:-.}; python -m pipenv shell
 }
+
+alias pipenv="python -m pipenv"
 
 ################################
 # Clear
@@ -22,7 +24,7 @@ alias cls=clear
 # List files
 ################################
 alias la='ls -A'
-alias ls='colorls  -1 --group-directories-first -X --sort=extension'
+alias ls='ls  -1 --color=auto --group-directories-first -X --sort=extension'
 function lw () {
   ls "$@" | wc
 }
@@ -39,14 +41,14 @@ function ser(){
 # Docker
 ################################
 # Soft docker cleanup
-function dc (){ 
+function dc (){
     local services=$(docker service ls -q)
-    [ -s "$services" ] && docker service rm $services 
+    [ -s "$services" ] && docker service rm $services
 
-    local running=$(docker ps -aq) 
+    local running=$(docker ps -aq)
     [ -s "$running" ] && docker stop $running
 
-    local prs=$(docker ps -a -q) 
+    local prs=$(docker ps -a -q)
     [ -s "$prs" ] && docker rm $prs
 
     echo "Cleaned Docker"
@@ -54,17 +56,17 @@ function dc (){
 # Hard docker cleanup
 function dc-hard (){ \
     dc();
-    docker network prune -f  
+    docker network prune -f
 
     local volumes=$(docker volume ls -q)
-    [ -s "$volumes" ] && docker volume rm $volumes 
+    [ -s "$volumes" ] && docker volume rm $volumes
 }
 
 alias dl='docker service ls -q | xargs -L 1 docker service logs 2>&1 | grep -i error'
-alias dils='docker image ls' 
-alias dcls='docker container ls' 
+alias dils='docker image ls'
+alias dcls='docker container ls'
 alias dps='docker stack ps --format "table  {{.Name}}\t{{.Image}}\t{{.CurrentState}}"'
-alias dsls='docker service ls' 
+alias dsls='docker service ls'
 
 # I've had problems with containers not producing logs
 # this hacky alias fixes that by removing all logs (!)
@@ -101,7 +103,7 @@ function gca() {
   if [[ "$(git log -1)" == *"Merge"* ]]; then echo "Cannot amend into merge commit"; else git commit --amend --no-edit; fi
 }
 
-# Adds autocomplete to `grefresh`. 
+# Adds autocomplete to `grefresh`.
 # NB: Only works if same autocomplete already been used once
 # gref <branch-to-delete> <branch-to-checkout>
 function gref() {
@@ -110,7 +112,7 @@ function gref() {
   gpl
   gprune
 }
-compdef __git_branch_names gref
+# compdef __git_branch_names gref
 
 # Initializes custom it autocomplete
 _git 2>/dev/null
@@ -163,3 +165,5 @@ extract () {
    fi
 }
 
+
+alias vi="vim"
