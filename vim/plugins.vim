@@ -51,6 +51,8 @@ Plug 'airblade/vim-rooter'
 " Fancy start screen
 Plug 'mhinz/vim-startify'
 
+Plug 'easymotion/vim-easymotion'
+
 call plug#end()
 filetype plugin indent on
 
@@ -63,6 +65,7 @@ filetype plugin indent on
 " Color scheme
 """"""""""""""""""""""""""""""""
 set background=dark
+
 let g:gruvbox_sign_column = 'bg0'
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_italic = 1
@@ -70,6 +73,12 @@ let g:gruvbox_underline = 1
 let g:gruvbox_invert_selection = 0
 let g:gruvbox_plugin_hi_groups = 1
 let g:gruvbox_termcolors=16
+
+" Unset background so we can use that sweet transparency
+hi Normal ctermbg=NONE guibg=NONE
+autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
+autocmd VimEnter * hi SignColumn ctermbg=NONE guibg=NONE
+
 colorscheme gruvbox
 
 
@@ -86,7 +95,7 @@ let g:netrw_liststyle = 3 " Show like a tree
 """"""""""""""""""""""""""""""""
 " Airline
 """"""""""""""""""""""""""""""""
-let g:airline_theme='base16_gruvbox_dark_hard'
+" let g:airline_theme='base16_gruvbox_dark_hard'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 
@@ -138,7 +147,7 @@ let g:airline#extensions#hunks#enabled = 0
 
 " ALE Integration
 let airline#extensions#ale#error_symbol = '❌:'
-let airline#extensions#ale#warning_symbol = '⚠️ :'
+let airline#extensions#ale#warning_symbol = '⚠ :'
 let airline#extensions#ale#show_line_numbers = 0
 
 if !exists('g:airline_symbols')
@@ -177,6 +186,13 @@ let g:conoline_use_colorscheme_default_normal=1
 " Git info
 """"""""""""""""""""""""""""""""
 let g:signify_vcs_list = [ 'git' ]
+
+" Custom highlight groups to support background transparency
+highlight SignifySignAdd ctermbg=NONE guibg=NONE ctermfg=green
+highlight SignifySignChange ctermbg=NONE guibg=NONE ctermfg=yellow
+highlight SignifySignChangeDelete ctermbg=NONE guibg=NONE ctermfg=yellow
+highlight SignifySignDelete ctermbg=NONE guibg=NONE ctermfg=red
+highlight SignifySignDeleteFirstLine ctermbg=NONE guibg=NONE ctermfg=red
 
 
 """"""""""""""""""""""""""""""""
@@ -218,6 +234,7 @@ let g:coc_global_extensions = [
 \ 'coc-omni',
 \ 'coc-pairs',
 \ 'coc-python',
+\ 'coc-r-lsp',
 \ 'coc-syntax',
 \ 'coc-tabnine',
 \ 'coc-tag',
@@ -229,10 +246,17 @@ let g:coc_global_extensions = [
 """"""""""""""""""""""""""""""""
 " Linting (ALE)
 """"""""""""""""""""""""""""""""
+" Needed tu support transparency in sign backgrounds
+highlight ALEErrorSign guibg=NONE guifg=red ctermfg=red
+highlight ALEWarningSign guibg=NONE guifg=yellow ctermfg=red
+
 " NB: Recommnded to have a global installation of `prettier`
 let g:ale_sign_error = '❌'
 let g:ale_sign_info = ''
-let g:ale_sign_warning = '⚠️'
+let g:ale_sign_warning = '⚠'
+let g:ale_sign_style_error = 'e'
+let g:ale_sign_style_info = 'i'
+let g:ale_sign_style_warning = 'w'
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
       \ 'javascriptreact': ['eslint'],
@@ -242,7 +266,7 @@ let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_fixers = {
- \ "*": ["trim_whitespace"],
+ \ "*": ["remove_trailing_lines", "trim_whitespace"],
      \ 'css': ['prettier'],
       \ 'html':['prettier'],
       \ 'javascript': ['prettier'],
@@ -250,6 +274,7 @@ let g:ale_fixers = {
       \ 'json': ['prettier'],
       \ 'markdown':['prettier'],
       \ 'python': ['black', 'isort'],
+      \ 'r': [ 'styler'],
       \ 'typescript': ['prettier'],
       \ 'typescriptreact': ['prettier']
 \}
@@ -353,4 +378,3 @@ let g:startify_bookmarks= [
       \ { "u": "~/d2ui" },
       \ { "m": "~/mynstur" },
 \ ]
-
