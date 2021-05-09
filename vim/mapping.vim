@@ -6,24 +6,24 @@ let mapleader = ","
 
 " Remap escape
 inoremap jk <ESC>
-tnoremap <ESC> <C-w>N 
+tnoremap <ESC> <C-w>N
 tnoremap jk <C-w>N
 
 " Unset recording, as I never use that
-map q <Nop> 
+map q <Nop>
 
 " Unset Ex mode
-map Q <Nop> 
+map Q <Nop>
 
 " Saving and exiting
 nmap <Leader>w :w<CR>
 nmap <Leader>ww :w<CR>
 nmap <Leader>wq :w<CR> :clo<CR>
 
-" Note order as `nmap` also applies to 
+" Note order as `nmap` also applies to
 " terminal in normal mode
 tnoremap <Leader>q <C-w><C-c>
-nmap <Leader>q :clo<CR> 
+nmap <Leader>q :clo<CR>
 
 
 " Remap keys for gotos
@@ -62,11 +62,11 @@ abbreviate vterm vert term
 nmap <Leader>vt :vert term<CR>
 nmap <Leader>xt :term<CR>
 
-" Explore 
-map <C-p> :GFiles<CR> 
-nmap <Leader>b :Buffers<CR> 
-nmap <Leader>l :Lines<CR> 
-nmap <Leader>t :TestFile<CR> 
+" Explore
+map <C-p> :GFiles<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>l :Lines<CR>
+nmap <Leader>t :TestFile<CR>
 
 " View folder of current buffer
 " Capital E will open hidden buffer
@@ -77,6 +77,11 @@ noremap <Leader>ov :Vexplore %:h<CR>
 " Navigate errors
 nmap <silent> <leader>e <Plug>(ale_next_wrap)
 nmap <silent> <leader>E <Plug>(ale_previous_wrap)
+
+" Navigate Git hunks
+nmap gj <plug>(signify-next-hunk)
+nmap gk <plug>(signify-prev-hunk)
+
 
 abbreviate EditVimrc e ~/.vimrc
 
@@ -99,4 +104,3 @@ abbreviate Gri G rebase -i
 abbreviate Gsp G stash pop
 abbreviate Gst G stash
 abbreviate Gprune G remote prune origin
-
