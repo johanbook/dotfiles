@@ -42,7 +42,6 @@ set $color_fg #EBDBB2
 ################################################
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-# output * bg ~/.dotfiles/wallpapers/simple.jpg fill
 
 # Outputs
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -59,8 +58,11 @@ exec swayidle -w \
          timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 
-seat seat0 hide_cursor when-typing enable
+# Screen lock
+bindsym $mod+x exec 'swaylock -f -c 000000'
 
+# Hide cursor
+seat seat0 hide_cursor when-typing enable
 
 
 ################################################
