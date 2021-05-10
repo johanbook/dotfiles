@@ -46,16 +46,14 @@ bindkey -v
 # Aliases
 source  ~/.dotfiles/.alias
 
-# zsh-system-clipboard
-source ~/.dotfiles/bin/zsh-system-clipboard/zsh-system-clipboard.zsh
-
 # Fuzzy finder
 FZF_DEFAULT_COMMAND='ls'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Powerlevel9k
+# Powerlevel10k
 source ~/.dotfiles/.powerlevel9k
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
 
 # Syntax highlighting
 source ~/.dotfiles/bin/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -67,9 +65,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load private envs
 source ~/.dotfiles/.env
-
-# Unset capslock because it causes more trouble then it gives
-setxkbmap -option '' -option 'ctrl:nocaps'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh

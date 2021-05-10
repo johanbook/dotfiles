@@ -14,8 +14,7 @@ sudo apt-get install zsh
 ```
 
 Copy the `.zshrc` to your home folder, logout and login and you should be good
-to go. Install
-[zsh-system-clipboard](https://github.com/kutsan/zsh-system-clipboard).
+to go.
 
 ### Fonts
 
