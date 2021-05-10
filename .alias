@@ -166,4 +166,4 @@ extract () {
 }
 
 
-alias vi="vim"
+alias vi="vim --clean"
