@@ -79,8 +79,8 @@ nmap <silent> <leader>e <Plug>(ale_next_wrap)
 nmap <silent> <leader>E <Plug>(ale_previous_wrap)
 
 " Navigate Git hunks
-nmap gj <plug>(signify-next-hunk)
-nmap gk <plug>(signify-prev-hunk)
+nmap <Leader>h <plug>(signify-next-hunk)
+nmap <Leader>H <plug>(signify-prev-hunk)
 
 
 abbreviate EditVimrc e ~/.vimrc
