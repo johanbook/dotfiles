@@ -9,7 +9,7 @@ call plug#begin('~/.vim/plugged')
 " Linting and formatting
 Plug 'dense-analysis/ale'
 
-" Autocomplete
+" Intellisense
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Syntax highlighting
@@ -22,19 +22,21 @@ Plug 'vim-airline/vim-airline-themes'
 " Theme
 Plug 'gruvbox-community/gruvbox'
 
-" Show git information
+" Basic Git integration
 Plug 'tpope/vim-fugitive'
 
-" Show git diffs
+" Show git diffs in number column
+" and some neat commands
 Plug 'mhinz/vim-signify'
 
+" General useful stuff
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Highlight current line
 Plug 'miyakogi/conoline.vim'
 
-" File navigation
+" Fuzzy file navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -51,6 +53,10 @@ Plug 'airblade/vim-rooter'
 " Fancy start screen
 Plug 'mhinz/vim-startify'
 
+" R terminal integration
+Plug 'jalvesaq/Nvim-R'
+
+" Improved motions for navigation
 Plug 'easymotion/vim-easymotion'
 
 call plug#end()
@@ -58,7 +64,9 @@ filetype plugin indent on
 
 
 """"""""""""""""""""""""""""""""""""""""
-" Plugin settings
+""""""""""""""""""""""""""""""""""""""""
+"" Plugin settings
+""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""
@@ -183,7 +191,7 @@ let g:conoline_use_colorscheme_default_normal=1
 
 
 """"""""""""""""""""""""""""""""
-" Git info
+" Signify
 """"""""""""""""""""""""""""""""
 let g:signify_vcs_list = [ 'git' ]
 
@@ -246,8 +254,9 @@ let g:coc_global_extensions = [
 """"""""""""""""""""""""""""""""
 " Linting (ALE)
 """"""""""""""""""""""""""""""""
-" Needed tu support transparency in sign backgrounds
+" Needed to support transparency in sign backgrounds
 highlight ALEErrorSign guibg=NONE guifg=red ctermfg=red
+highlight ALEInfoSign guibg=NONE guifg=blue ctermfg=blue
 highlight ALEWarningSign guibg=NONE guifg=yellow ctermfg=red
 
 " NB: Recommnded to have a global installation of `prettier`
