@@ -1,3 +1,8 @@
+# Needed for adding custom zsh autocompletion
+# (e.g. used in `gref`)
+autoload -Uz compinit
+compinit
+
 ################################
 # Change directory
 ################################
@@ -112,7 +117,7 @@ function gref() {
   gpl
   gprune
 }
-# compdef __git_branch_names gref
+compdef __git_branch_names gref
 
 # Initializes custom it autocomplete
 _git 2>/dev/null
