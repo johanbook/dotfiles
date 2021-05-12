@@ -192,12 +192,14 @@ seat seat0 hide_cursor when-typing enable
 
 
 # class                 border|backgr|text|indicator|child_border
-client.focused          $color_yellow $color_darkgray $color_yellow $color_darkgray $color_darkgray
+client.focused          $color_blue $color_blue $color_blue $color_blue $color_gray
 client.focused_inactive $color_blue $color_darkgray $color_blue $color_darkgray $color_darkgray
 client.unfocused        $color_darkgray $color_darkgray $color_gray $color_purple $color_darkgray
 client.urgent           $color_red $color_red $color_white $color_red $color_red
 
 default_border pixel 1
+default_floating_border pixel
+hide_edge_borders smart
 
 
 #
