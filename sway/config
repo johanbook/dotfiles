@@ -61,6 +61,10 @@ exec swayidle -w \
 # Screen lock
 bindsym $mod+x exec 'swaylock -f -c 000000'
 
+
+# Take a Screenshot with the region select
+bindsym $mod+p exec grim -t jpeg -g "$(slurp)" ~/screenshot_$(date +%Y-%m-%d_%H-%m-%s).jpg
+
 # Hide cursor
 seat seat0 hide_cursor when-typing enable
 
