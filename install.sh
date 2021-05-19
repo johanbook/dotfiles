@@ -21,6 +21,7 @@ ln -sf $(pwd)/.vimrc ~/.vimrc
 ln -sf $(pwd)/vim/ ~/.vim
 
 # zsh
+ln -sf $(pwd)/.Rprofile ~/.Rprofile
 ln -sf $(pwd)/.zshrc ~/.zshrc
 
 echo "Installation complete"
