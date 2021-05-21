@@ -186,8 +186,8 @@ let g:airline_symbols.python = ' '
 " Conoline
 """"""""""""""""""""""""""""""""
 let g:conoline_auto_enable = 1
-let g:conoline_use_colorscheme_default_insert=1
-let g:conoline_use_colorscheme_default_normal=1
+let g:conoline_use_colorscheme_default_insert = 1
+let g:conoline_use_colorscheme_default_normal = 1
 
 
 """"""""""""""""""""""""""""""""
@@ -269,7 +269,8 @@ let g:ale_sign_style_warning = 'w'
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
       \ 'javascriptreact': ['eslint'],
-      \ 'python': ['pylint']
+      \ 'python': ['pylint'],
+      \ 'r': ['lintr']
 \}
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
@@ -387,3 +388,15 @@ let g:startify_bookmarks= [
       \ { "u": "~/d2ui" },
       \ { "m": "~/mynstur" },
 \ ]
+
+
+""""""""""""""""""""""""""""""""
+" nvim-r
+""""""""""""""""""""""""""""""""
+let R_assign = 0
+let R_args = ['--no-save', '--quiet']
+
+" Some handy shortcuts.
+" NB: ED stands for Echo+move Down
+vmap <Space> <Plug>REDSendSelection
+nmap <Space> <Plug>REDSendParagraph
