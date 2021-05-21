@@ -13,16 +13,6 @@ local({
   options(defaultPackages = c(old, "MASS"), repos = r)
 })
 
-sshhh <- function(a.package) suppressWarnings(suppressPackageStartupMessages(library(a.package, character.only = TRUE)))
-
-# Autoload packages
-auto.loads <- c()
-
-if (interactive()) {
-  # Supress warnings of autoloaded packages
-  invisible(sapply(auto.loads, sshhh))
-}
-
 options(browser = "brave")
 options(usethis.description = list(
   `Authors@R` = utils::person(

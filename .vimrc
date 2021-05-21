@@ -39,7 +39,7 @@ set lazyredraw
 set number
 
 " Keep some lines as marginals when scrolling
-set so=7
+set scrolloff=14
 
 " Encoding
 set encoding=utf-8
