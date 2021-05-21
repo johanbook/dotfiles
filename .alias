@@ -161,5 +161,6 @@ extract () {
    fi
 }
 
-
+alias diff="diff --color=always"
+alias R="R --quiet"
 alias vi="vim --clean"
