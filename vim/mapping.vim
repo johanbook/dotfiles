@@ -82,6 +82,12 @@ nmap <silent> <leader>E <Plug>(ale_previous_wrap)
 nmap <Leader>h <plug>(signify-next-hunk)
 nmap <Leader>H <plug>(signify-prev-hunk)
 
+" Allow toggling maximized windows
+nnoremap <silent><C-F> :MaximizerToggle<CR>
+vnoremap <silent><C-F> :MaximizerToggle<CR>gv
+inoremap <silent><C-F> <C-o>:MaximizerToggle<CR>
+tnoremap <silent><C-F> <C-W>:MaximizerToggle<CR>
+
 
 abbreviate EditVimrc e ~/.vimrc
 

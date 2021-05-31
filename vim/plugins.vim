@@ -45,10 +45,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 
 " Test runner
- Plug 'vim-test/vim-test'
+Plug 'vim-test/vim-test'
 
 " Plugin for easily switch between related files
- Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-projectionist'
 
 " Fancy start screen
 Plug 'mhinz/vim-startify'
@@ -58,6 +58,9 @@ Plug 'jalvesaq/Nvim-R'
 
 " Improved motions for navigation
 Plug 'easymotion/vim-easymotion'
+
+" Toggle window maximization
+Plug 'szw/vim-maximizer'
 
 call plug#end()
 filetype plugin indent on
@@ -172,8 +175,8 @@ let g:airline_symbols.notexists = '?'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " powerline symbols
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
@@ -397,6 +400,6 @@ let R_assign = 0
 let R_args = ['--no-save', '--quiet']
 
 " Some handy shortcuts.
-" NB: ED stands for Echo+move Down
-vmap <Space> <Plug>REDSendSelection
-nmap <Space> <Plug>REDSendParagraph
+" NB: D stands for move Down
+vmap <Space> <Plug>RDSendSelection
+nmap <Space> <Plug>RDSendParagraph
