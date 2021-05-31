@@ -1,8 +1,10 @@
 # Function called after init
-.First <- function() {
-  cat(
-    paste0(R.Version()$version.string, "\n")
-  )
+if (interactive()) {
+  .First <- function() {
+    cat(
+      paste0(R.Version()$version.string, "\n")
+    )
+  }
 }
 
 # Set mirrors
