@@ -3,6 +3,7 @@
 autoload -Uz compinit
 compinit
 
+
 ################################
 # Change directory
 ################################
@@ -19,11 +20,13 @@ function cdp () {
 
 alias pipenv="python -m pipenv"
 
+
 ################################
 # Clear
 ################################
 alias clr=clear
 alias cls=clear
+
 
 ################################
 # List files
@@ -77,6 +80,7 @@ alias dsls='docker service ls'
 # this hacky alias fixes that by removing all logs (!)
 alias docker-clear-logs='sh -c "truncate -s 0 /var/lib/docker/containers/*/*-json.log"'
 
+
 #################################
 # Git
 ################################
@@ -87,7 +91,6 @@ alias gb='git branch'
 alias gbd='git branch -d'
 alias gc='git checkout'
 alias gcm='git commit -m'
-alias gch='git checkout'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gdb=gbd
@@ -122,6 +125,7 @@ compdef __git_branch_names gref
 # Initializes custom it autocomplete
 _git 2>/dev/null
 
+
 #################################
 # Misc
 ################################
@@ -130,16 +134,12 @@ alias volume="amixer sset 'Master'"
 alias wifi=nmtui
 alias format="npx prettier --write --prose-wrap always"
 
-# Shits and giggles
-alias cmatrix="cmatrix -C blue"
-alias star-wars="telnet towel.blinkenlights.nl"
-
 # TODO: Remove once I started usig rg by habit
 alias grep="echo use 'rg' instead"
 
 alias rg="rg --color ansi"
 
-# Extract comand
+# Extract comand because no one remembers the tar flags
 extract () {
    if [ -f $1 ] ; then
        case $1 in
