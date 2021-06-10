@@ -19,7 +19,7 @@ set cmdheight=2
 
 " Ignore backup files
 set nobackup
-set nowb
+set nowritebackup
 set noswapfile
 
 " Ignore case when searching
@@ -59,20 +59,12 @@ set updatetime=300
 " Show several matches when searching
 set wildmenu
 
-" True colors does not work in new setup
-" set termguicolors
-
 " Vim wraps long line by default, which behaves
 " funky when viewing e.g. minified JS. It can
 " instead be turned on on a buffer-basis
 set nowrap
 
-" Activate omnicomplte
-" set omnifunc=syntaxcomplete#Complete
-
-" Use tags
-" set tags^=./.git/tags;
-
+" Scripts
 source ~/.dotfiles/vim/filetypes.vim
 source ~/.dotfiles/vim/mapping.vim
 source ~/.dotfiles/vim/plugins.vim
