@@ -23,6 +23,10 @@ options(usethis.description = list(
   )
 ))
 
+# Invoke proper stack trace
+# Although will yield error message on its own
+options(error = rlang::last_error)
+
 
 wideScreen <- function(howWide = Sys.getenv("COLUMNS")) {
   options(width = as.integer(howWide))
