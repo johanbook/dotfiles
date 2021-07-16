@@ -86,21 +86,17 @@ alias docker-clear-logs='sh -c "truncate -s 0 /var/lib/docker/containers/*/*-jso
 ################################
 alias ga='git add'
 alias gaa='git add -A'
-alias gaam='git add -A; git commit'
 alias gb='git branch'
-alias gba='git branch -a'
 alias gbd='git branch -d'
+alias gbdd='git branch -D'
 alias gc='git checkout'
 alias gcm='git commit -m'
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias gdb=gbd
 alias gcb='git checkout -b'
-alias gcnb=gcb
 alias gl='git log -25 --graph --pretty=format:"%C(yellow)%h - %C(green)%cn %C(reset)%s %C(blue bold)%d"'
 alias gp='git push'
 alias gpl='git pull'
-alias gr='git rebase'
 alias gri='git rebase -i'
 alias gs='git status --short --branch'
 alias gsp='git stash pop'
