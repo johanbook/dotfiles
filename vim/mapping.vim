@@ -66,7 +66,7 @@ nmap <Leader>xt :term<CR>
 map <C-p> :GFiles<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>l :Lines<CR>
-nmap <Leader>t :TestFile<CR>
+nmap <Leader>t :w<bar>TestFile<CR>
 
 " View folder of current buffer
 " Capital E will open hidden buffer
