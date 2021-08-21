@@ -1,9 +1,9 @@
 # Johan's Dotfiles
 
-Using Ubuntu 18.04.3 LTS (Bionic) with the Gruvbox Theme. Here is a preview
+Using Arch Linux, inspired by the Gruvbox Theme. Here is a preview
 ![screenshot](https://raw.githubusercontent.com/johanbook/dotfiles/master/screenshot.png)
 
-There is a semi-finished install script in `install.sh`.
+There is a WiP install script in `install.sh`.
 
 ## Terminal
 
@@ -39,7 +39,7 @@ Nerd font here. I went with `DroidSansMono Nerd Font Book` at 12px.
 
 Install powerline and copy settings.
 
-## i3
+## Sway
 
 Install i3 window manager
 
@@ -82,3 +82,10 @@ I use the Brave browser with the following plugins;
 - [Vimium](https://github.com/philc/vimium)
 - [Gruvbox theme](https://github.com/bbrks/chrome-gruvbox)
 - [Gruvbox dev tools](https://chrome.google.com/webstore/detail/devtools-theme-gruvbox-da/njcgdakjdifgccdgnoiphpnihcfopcmj)
+
+
+## Various tricks
+
+### Vim: sh: pipenv not found
+
+If vim python integration fails due to pipenv is not found, run `:let r = system(pip install pipenv)`.
