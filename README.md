@@ -1,20 +1,34 @@
 # Johan's Dotfiles
 
-Using Arch Linux, inspired by the Gruvbox Theme. Here is a preview
-![screenshot](https://raw.githubusercontent.com/johanbook/dotfiles/master/screenshot.png)
+I am running Arch Linux with a Gruvbox inspired theme. See the screenshot below
+for look and feel. Feel free to check out my configs!
 
-There is a WiP install script in `install.sh`.
+![screenshot](https://raw.githubusercontent.com/johanbook/dotfiles/master/screenshot.jpg)
+
+## Sway
+
+I use `Sway` as window manager. On Arch it can be installed as
+
+```sh
+sudo pacman -S sway
+```
+
+and can be tied to the login shell using
+
+```sh
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+  exec sway
+fi
+```
 
 ## Terminal
 
-First of all, we must install zsh, the one and superior shell.
+As a terminal emulator, I use `alacritty` which ships with `zsh` by default (the
+one and superior shell).
 
 ```bash
 sudo pacman -S alacritty
 ```
-
-Copy the `.zshrc` to your home folder, logout and login and you should be good
-to go.
 
 ### Fonts
 
@@ -25,27 +39,9 @@ git clone --depth 1 https://github.com/ryanoasis/nerd-fonts .nerd-fonts/
 bash .nerd-fonts/.install.sh
 ```
 
-## Powerline
+### Powerline
 
 Install powerline and copy settings.
-
-## Sway
-
-Install sway window manager
-
-```sh
-sudo pacman -S sway
-```
-
-Add following to shell init file.
-
-```sh
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-  exec sway
-fi
-```
-
-Symlink the `sway` configuration files. 
 
 ## Vim
 
