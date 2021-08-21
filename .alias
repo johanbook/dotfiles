@@ -87,7 +87,6 @@ alias docker-clear-logs='sh -c "truncate -s 0 /var/lib/docker/containers/*/*-jso
 alias ga='git add'
 alias gaa='git add -A'
 alias gb='git branch'
-alias gbd='git branch -d'
 alias gbdd='git branch -D'
 alias gc='git checkout'
 alias gcm='git commit -m'
@@ -130,10 +129,6 @@ alias size="duh -sh"
 alias volume="amixer sset 'Master'"
 alias wifi=nmtui
 alias format="npx prettier --write --prose-wrap always"
-
-# TODO: Remove once I started usig rg by habit
-alias grep="echo use 'rg' instead"
-
 alias rg="rg --color ansi"
 
 # Extract comand because no one remembers the tar flags
@@ -161,3 +156,9 @@ extract () {
 alias diff="diff --color=always"
 alias R="R --no-save --quiet"
 alias vi="vim --clean"
+
+
+#################################
+# Application specific
+################################
+alias kubectl="microk8s kubectl"
