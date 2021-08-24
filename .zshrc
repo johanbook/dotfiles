@@ -36,6 +36,15 @@ setopt SHARE_HISTORY
 
 
 ################################
+# Autocompletion
+################################
+zstyle :compinstall filename '/home/book/.zshrc'
+
+autoload -Uz compinit
+compinit
+
+
+################################
 # General
 ################################
 # export LANG="en_US.UTF-8"
