@@ -61,7 +61,7 @@ FZF_DEFAULT_COMMAND='ls'
 
 # Powerlevel10k
 source ~/.dotfiles/.powerlevel9k
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source ~/.dotfiles/bin/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
 
 # Syntax highlighting

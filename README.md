@@ -1,19 +1,16 @@
 # Johan's Dotfiles
 
-I am running Arch Linux with a Gruvbox inspired theme. See the screenshot below
-for look and feel. Feel free to check out my configs!
+I am running Arch Linux on Wayland and Sway. On top of that I use a Gruvbox
+inspired theme. See the screenshot below for look and feel. Feel free to check
+out my configs!
 
 ![screenshot](https://raw.githubusercontent.com/johanbook/dotfiles/master/screenshot.jpg)
 
+There is install script in `install.sh`.
+
 ## Sway
 
-I use `Sway` as window manager. On Arch it can be installed as
-
-```sh
-sudo pacman -S sway
-```
-
-and can be tied to the login shell using
+Sway can be tied to the login shell by adding
 
 ```sh
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
@@ -21,50 +18,31 @@ if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
 fi
 ```
 
+to e.g. `/etc/profile`.
+
 ## Terminal
-
-As a terminal emulator, I use `alacritty` which ships with `zsh` by default (the
-one and superior shell).
-
-```bash
-sudo pacman -S alacritty
-```
 
 ### Fonts
 
-We need the install the nerdfonts.
+I am normally content with Font Awesome, but one can install nerdfonts using
 
-```bash
+```sh
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts .nerd-fonts/
 bash .nerd-fonts/.install.sh
 ```
 
-### Powerline
-
-Install powerline and copy settings.
-
-## Vim
-
-Make sure you have the best vim
-
-```bash
-pacman -S vim
-```
-
-Install Vundle using git clone. Once installed, run `:PluginInstall` inside Vim.
-After that, you should be good to go.
-
 ## Jupyter Notebook
 
-Install jupyter-theme to your system wide Python distribution,
+If using Jupyter Notebook one can use custom themes. Install `jupyter-theme` to
+your system wide Python distribution,
 
-```bash
+```sh
 sudo pip3 install jupyter-theme
 ```
 
 Change theme to gruvbox
 
-```bash
+```sh
 jupyter-theme -t gruvboxd
 ```
 
