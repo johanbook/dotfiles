@@ -10,9 +10,11 @@ echo "- Installing Pacman packages. This will need sudo privileges"
 sudo pacman -S \
 	alacritty \
 	alsa-utils \
+	fzf \
 	git \
 	grim \
 	gvim \
+	make \
 	openssh \
 	ripgrep \
 	slurp \
@@ -55,6 +57,7 @@ ln -sf $(pwd)/vim/ ~/.vim
 ln -sf $(pwd)/waybar/ ~/.config/waybar
 ln -sf $(pwd)/.zshrc ~/.zshrc
 touch $(pwd)/.env
+
 
 
 ################################################
