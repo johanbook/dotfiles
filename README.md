@@ -31,6 +31,10 @@ git clone --depth 1 https://github.com/ryanoasis/nerd-fonts .nerd-fonts/
 bash .nerd-fonts/.install.sh
 ```
 
+## Bash linting
+
+You can install `spellcheck` and `shfmt` via Pacman.
+
 ## Jupyter Notebook
 
 If using Jupyter Notebook one can use custom themes. Install `jupyter-theme` to

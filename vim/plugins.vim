@@ -246,6 +246,7 @@ let g:coc_global_extensions = [
 \ 'coc-pairs',
 \ 'coc-python',
 \ 'coc-r-lsp',
+\ 'coc-sh',
 \ 'coc-syntax',
 \ 'coc-tabnine',
 \ 'coc-tag',
@@ -273,7 +274,8 @@ let g:ale_linters = {
       \ 'javascript': ['eslint'],
       \ 'javascriptreact': ['eslint'],
       \ 'python': ['pylint'],
-      \ 'r': ['lintr']
+      \ 'r': ['lintr'],
+      \ 'sh': [ 'spellcheck']
 \}
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
@@ -288,6 +290,7 @@ let g:ale_fixers = {
       \ 'markdown':['prettier'],
       \ 'python': ['black', 'isort'],
       \ 'r': [ 'styler'],
+      \ 'sh': [ 'shfmt'],
       \ 'typescript': ['prettier'],
       \ 'typescriptreact': ['prettier']
 \}
@@ -331,7 +334,6 @@ let test#strategy = "vimterminal"
 " Avoid interactive run as we cannot
 " interact with it anyways
 let test#javascript#reactscripts#options = '--watchAll=false'
-let test#python#pytest#options = '-s'
 
 
 """"""""""""""""""""""""""""""""
