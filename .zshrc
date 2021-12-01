@@ -55,9 +55,11 @@ bindkey -v
 # Aliases
 source  ~/.dotfiles/.alias
 
-# Fuzzy finder
+# Fuzzy finder (FZF)
 FZF_DEFAULT_COMMAND='ls'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 # Powerlevel10k
 source ~/.dotfiles/.powerlevel9k
