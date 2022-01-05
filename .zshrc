@@ -43,6 +43,11 @@ zstyle :compinstall filename '/home/book/.zshrc'
 autoload -Uz compinit
 compinit
 
+# Needed for docker tab completion for options
+# See https://github.com/ohmyzsh/ohmyzsh/issues/9266
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
 
 ################################
 # General
