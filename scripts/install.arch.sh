@@ -1,3 +1,4 @@
+#!/bin/bash
 # This script will install Wayland, Sway and some other useful
 # Arch utilities
 

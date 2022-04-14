@@ -1,6 +1,9 @@
+#!/bin/bash
 # Arch Linux install script that installs Wayland, Sway etc
 
 set -e
+
+DOTFILES_DIR=$(pwd)
 
 ################################################
 # Packages
@@ -11,10 +14,10 @@ echo "- Installing NVM (Nodejs Version Manager)"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | sh
 
 echo "- Installing Zsh syntax highlighting"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.dotfiles/bin/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $DOTFILES_DIR/bin/zsh-syntax-highlighting
 
 echo "- Installing Zsh theme Powerlevel10k"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.dotfiles/bin/zsh-theme-powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $DOTFILES_DIR/bin/zsh-theme-powerlevel10k
 
 ###############################################
 # Configurations
@@ -28,14 +31,14 @@ if [ "$response" != "y" ]; then
 fi
 
 mkdir -p ~/.config
-ln -sf $(pwd)/alacritty/ ~/.config/alacritty
-ln -sf $(pwd)/.Rprofile ~/.Rprofile
-ln -sf $(pwd)/sway/ ~/.config/sway
-ln -sf $(pwd)/.vimrc ~/.vimrc
-ln -sf $(pwd)/vim/ ~/.vim
-ln -sf $(pwd)/waybar/ ~/.config/waybar
-ln -sf $(pwd)/.zshrc ~/.zshrc
-touch $(pwd)/.env
+ln -sf $DOTFILES_DIR/alacritty/ ~/.config/alacritty
+ln -sf $DOTFILES_DIR/.Rprofile ~/.Rprofile
+ln -sf $DOTFILES_DIR/sway/ ~/.config/sway
+ln -sf $DOTFILES_DIR/.vimrc ~/.vimrc
+ln -sf $DOTFILES_DIR/vim/ ~/.vim
+ln -sf $DOTFILES_DIR/waybar/ ~/.config/waybar
+ln -sf $DOTFILES_DIR/.zshrc ~/.zshrc
+touch $DOTFILES_DIR/.env
 
 ################################################
 # Cleanup

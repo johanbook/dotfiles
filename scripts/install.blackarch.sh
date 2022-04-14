@@ -1,3 +1,4 @@
+#!/bin/bash
 # This script adds the Blackarch repo
 # Taken from https://blackarch.org/downloads.html#install-repo
 # the 2021-11-10
