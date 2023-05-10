@@ -8,7 +8,7 @@ set nocompatible
 set autoread
 
 " Use system clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed,unnamedplus
 
 " We want directory to stay at project root.
 " This is handled by plugin vim-rooter
