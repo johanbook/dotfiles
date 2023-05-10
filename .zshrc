@@ -63,8 +63,15 @@ source  ~/.dotfiles/.alias
 # Fuzzy finder (FZF)
 FZF_DEFAULT_COMMAND='ls'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+
+# Linux
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+
+# Mac
+[ -f /opt/homebrew/opt/fzf/shell/completion.zsh ] && source /opt/homebrew/opt/fzf/shell/completion.zsh
+[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ] && source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+
 
 # Powerlevel10k
 source ~/.dotfiles/.powerlevel9k
@@ -81,3 +88,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load private envs
 source ~/.dotfiles/.env
+
+# Local configs
+[ -f ~/.dotfiles/.zshrc.local ] && source ~/.dotfiles/.zshrc.local
