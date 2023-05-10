@@ -41,10 +41,10 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Needed as `map` does not cover terminal mode
-tmap <C-j> <C-W>j
-tmap <C-k> <C-W>k
-tmap <C-h> <C-W>h
-tmap <C-l> <C-W>l
+" tmap <C-j> <C-W>j
+" tmap <C-k> <C-W>k
+" tmap <C-h> <C-W>h
+" tmap <C-l> <C-W>l
 
 " Get off my lawn
 nnoremap <Left>     :echoerr "Use h"<CR>
