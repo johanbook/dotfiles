@@ -81,7 +81,7 @@ source ~/.dotfiles/bin/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # Syntax highlighting
 source ~/.dotfiles/bin/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Load NVM to handle node
+# Load NVM to handle Nodejs
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -90,4 +90,5 @@ export NVM_DIR="$HOME/.nvm"
 source ~/.dotfiles/.env
 
 # Local configs
+# Such as custom appitions to PATH (for i.e. gcloud)
 [ -f ~/.dotfiles/.zshrc.local ] && source ~/.dotfiles/.zshrc.local

@@ -37,6 +37,7 @@ ln -sf $DOTFILES_DIR/sway/ ~/.config/sway
 ln -sf $DOTFILES_DIR/.vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/vim/ ~/.vim
 ln -sf $DOTFILES_DIR/waybar/ ~/.config/waybar
+ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES_DIR/.zshrc ~/.zshrc
 touch $DOTFILES_DIR/.env
 
