@@ -298,6 +298,7 @@ let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0 " Autocompletion is handled by CoC
 let g:ale_echo_cursor = 1
 let g:ale_hover_cursor = 1
+let g:ale_virtualtext_cursor = "disabled"
 
 " Python envs are handled by pipenv
 let g:ale_virtualenv_dir_names = [ ]
