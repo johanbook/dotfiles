@@ -389,10 +389,6 @@ let g:startify_commands= [
 " Unique to computer Lagrande
 let g:startify_bookmarks= [
       \ { ".": "~/.dotfiles" },
-      \ { "c": "~/capabilities" },
-      \ { "a": "~/d2api" },
-      \ { "u": "~/d2ui" },
-      \ { "m": "~/mynstur" },
 \ ]
 
 
