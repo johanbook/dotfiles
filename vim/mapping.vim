@@ -30,6 +30,10 @@ nmap <Leader>q :clo<CR>
 tnoremap <silent> <Leader>g :vertical wincmd f<CR>
 nmap <silent> <Leader>g <Plug>(coc-definition)
 
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " When opening files, do so in new vert
 map <silent> gf :vertical wincmd f<CR>
 " mp <C-w>f :vertical wincmd f<CR>
