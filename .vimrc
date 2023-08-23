@@ -64,6 +64,9 @@ set wildmenu
 " instead be turned on on a buffer-basis
 set nowrap
 
+" Fixes Vim freezing on Mac
+set re=2
+
 " Scripts
 source ~/.dotfiles/vim/filetypes.vim
 source ~/.dotfiles/vim/mapping.vim
