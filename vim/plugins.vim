@@ -405,5 +405,15 @@ let R_args = ['--no-save', '--quiet']
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendParagraph
 
+
+""""""""""""""""""""""""""""""""
+" vim-chatgpt
+""""""""""""""""""""""""""""""""
+" Pick which model to use
 " let g:chat_gpt_model='gpt-4'
+
+" Keep a consistent session
 let g:chat_gpt_session_mode=1
+
+" If split should be open in vertical or horizontally
+let g:chat_gpt_split_direction = 'vertical'
