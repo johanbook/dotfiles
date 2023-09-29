@@ -44,6 +44,8 @@ Plug 'junegunn/fzf.vim'
 " to work properly
 Plug 'airblade/vim-rooter'
 
+Plug 'CoderCookE/vim-chatgpt'
+
 " Test runner
 Plug 'vim-test/vim-test'
 
@@ -54,13 +56,13 @@ Plug 'tpope/vim-projectionist'
 Plug 'mhinz/vim-startify'
 
 " R terminal integration
-Plug 'jalvesaq/Nvim-R'
+"Plug 'jalvesaq/Nvim-R'
 
 " Improved motions for navigation
 Plug 'easymotion/vim-easymotion'
 
 " Toggle window maximization
-Plug 'szw/vim-maximizer'
+"Plug 'szw/vim-maximizer'
 
 call plug#end()
 filetype plugin indent on
@@ -402,3 +404,6 @@ let R_args = ['--no-save', '--quiet']
 " NB: D stands for move Down
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendParagraph
+
+" let g:chat_gpt_model='gpt-4'
+let g:chat_gpt_session_mode=1
