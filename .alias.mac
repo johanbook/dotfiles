@@ -1,0 +1,6 @@
+################################
+# Mac overrides
+################################
+
+alias la='gls -A'
+alias ls='gls  -1 --color=auto --group-directories-first -X --sort=extension'

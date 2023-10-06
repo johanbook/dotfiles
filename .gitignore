@@ -5,6 +5,8 @@ vim/plugged
 vim/vim
 vim/.netrwhist
 vim/.netrwbook
+
+.alias.local
 .env
 .zshrc.local
 .DS_Store
