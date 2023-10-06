@@ -7,3 +7,4 @@ vim/.netrwhist
 vim/.netrwbook
 .env
 .zshrc.local
+.DS_Store
