@@ -162,3 +162,8 @@ alias vim="/opt/homebrew/bin/vim"
 
 
 [ -f ~/.dotfiles/.alias.local ] && source ~/.dotfiles/.alias.local
+
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source ~/.dotfiles/.alias.mac
+fi
