@@ -157,10 +157,6 @@ alias vi="vim --clean"
 [ -x "$(command -v helm)" ] && source <(helm completion zsh)
 [ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 
-alias dd-tmux="sh ~/.dotfiles/dd-tmux"
-alias vim="/opt/homebrew/bin/vim"
-
-
 [ -f ~/.dotfiles/.alias.local ] && source ~/.dotfiles/.alias.local
 
 
