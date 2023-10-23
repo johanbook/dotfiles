@@ -417,3 +417,6 @@ let g:chat_gpt_session_mode=1
 
 " If split should be open in vertical or horizontally
 let g:chat_gpt_split_direction = 'vertical'
+
+# Max numbr of tokenx
+let g:chat_gpt_max_tokens=20000
