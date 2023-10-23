@@ -68,4 +68,4 @@ shell:
   program: /bin/zsh
 
 window:
-  opacity: 0.9
+  opacity: 0.95
