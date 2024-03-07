@@ -121,6 +121,7 @@ alias size="duh -sh"
 alias volume="amixer sset 'Master'"
 alias wifi=nmtui
 alias format="npx prettier --write --prose-wrap always"
+alias format-md="npx prettier --write --prose-wrap always --parser markdown"
 alias format-svg="npx prettier --write --prose-wrap always --parser html"
 # alias rg="rg --color ansi"
 
