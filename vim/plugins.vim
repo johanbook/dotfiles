@@ -249,6 +249,7 @@ let g:coc_global_extensions = [
 \ 'coc-python',
 \ 'coc-r-lsp',
 \ 'coc-sh',
+\ 'coc-spell-checker',
 \ 'coc-syntax',
 \ 'coc-tabnine',
 \ 'coc-tag',
@@ -410,7 +411,7 @@ nmap <Space> <Plug>RDSendParagraph
 " vim-chatgpt
 """"""""""""""""""""""""""""""""
 " Pick which model to use
-" let g:chat_gpt_model='gpt-4'
+let g:chat_gpt_model='gpt-4'
 
 " Keep a consistent session
 let g:chat_gpt_session_mode=1
@@ -419,4 +420,4 @@ let g:chat_gpt_session_mode=1
 let g:chat_gpt_split_direction = 'vertical'
 
 " Max numbr of tokenx
-let g:chat_gpt_max_tokens=20000
+let g:chat_gpt_max_tokens=2000
