@@ -55,14 +55,8 @@ Plug 'tpope/vim-projectionist'
 " Fancy start screen
 Plug 'mhinz/vim-startify'
 
-" R terminal integration
-"Plug 'jalvesaq/Nvim-R'
-
 " Improved motions for navigation
 Plug 'easymotion/vim-easymotion'
-
-" Toggle window maximization
-"Plug 'szw/vim-maximizer'
 
 call plug#end()
 filetype plugin indent on
