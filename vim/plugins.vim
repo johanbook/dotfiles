@@ -34,7 +34,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Highlight current line
-Plug 'miyakogi/conoline.vim'
+"Plug 'miyakogi/conoline.vim'
 
 " Fuzzy file navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -44,7 +44,6 @@ Plug 'junegunn/fzf.vim'
 " to work properly
 Plug 'airblade/vim-rooter'
 
-Plug 'CoderCookE/vim-chatgpt'
 
 " Test runner
 Plug 'vim-test/vim-test'
@@ -57,6 +56,19 @@ Plug 'mhinz/vim-startify'
 
 " Improved motions for navigation
 Plug 'easymotion/vim-easymotion'
+
+Plug 'stevearc/dressing.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'MunifTanjim/nui.nvim'
+
+" Optional deps
+Plug 'hrsh7th/nvim-cmp'
+Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
+Plug 'HakonHarnes/img-clip.nvim'
+Plug 'zbirenbaum/copilot.lua'
+
+" Yay, pass source=true if you want to build from source
+Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 
 call plug#end()
 filetype plugin indent on
@@ -390,28 +402,11 @@ let g:startify_bookmarks= [
 
 
 """"""""""""""""""""""""""""""""
-" nvim-r
+" avante.nvim
 """"""""""""""""""""""""""""""""
-let R_assign = 0
-let R_args = ['--no-save', '--quiet']
 
-" Some handy shortcuts.
-" NB: D stands for move Down
-vmap <Space> <Plug>RDSendSelection
-nmap <Space> <Plug>RDSendParagraph
-
-
-""""""""""""""""""""""""""""""""
-" vim-chatgpt
-""""""""""""""""""""""""""""""""
-" Pick which model to use
-let g:chat_gpt_model='gpt-4'
-
-" Keep a consistent session
-let g:chat_gpt_session_mode=1
-
-" If split should be open in vertical or horizontally
-let g:chat_gpt_split_direction = 'vertical'
-
-" Max numbr of tokenx
-let g:chat_gpt_max_tokens=2000
+autocmd! User avante.nvim 
+lua << EOF
+require('avante_lib').load()
+require('avante').setup()
+EOF
