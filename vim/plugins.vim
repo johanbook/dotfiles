@@ -44,8 +44,6 @@ Plug 'junegunn/fzf.vim'
 " to work properly
 Plug 'airblade/vim-rooter'
 
-Plug 'CoderCookE/vim-chatgpt'
-
 " Test runner
 Plug 'vim-test/vim-test'
 
