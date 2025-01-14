@@ -56,6 +56,19 @@ Plug 'mhinz/vim-startify'
 " Improved motions for navigation
 Plug 'easymotion/vim-easymotion'
 
+Plug 'stevearc/dressing.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'MunifTanjim/nui.nvim'
+
+" Optional deps
+Plug 'hrsh7th/nvim-cmp'
+Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
+Plug 'HakonHarnes/img-clip.nvim'
+Plug 'zbirenbaum/copilot.lua'
+
+" Yay, pass source=true if you want to build from source
+Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
+
 call plug#end()
 filetype plugin indent on
 
@@ -100,38 +113,17 @@ let g:netrw_liststyle = 3 " Show like a tree
 """"""""""""""""""""""""""""""""
 " Airline
 """"""""""""""""""""""""""""""""
-" let g:airline_theme='base16_gruvbox_dark_hard'
+let g:airline_theme='base16_gruvbox_dark_hard'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 
-function! VenvReporter()
-  if &filetype != "python"
-    return ""
-  endif
-
-  let venv = $VIRTUAL_ENV
-  if empty(venv)
-    return ""
-  endif
-
-  " Name is on format a/b/c/a-t-d...
-  " This creates a prefix
-  let parts = split(venv, "/")[-1]
-  let prefix = split(parts, "-")[0]
-  return printf("%s%s", g:airline_symbols.python, prefix)
-endfunction
-
 " let g:airline#themes#base16_gruvbox_dark_hard#palette.accents.blue = [ '#ff0000' , '' , 160 , ''  ]
-
-call airline#parts#define_function('venv', 'VenvReporter')
-" call airline#parts#define_accent('venv', 'red')
-
 
 " NB: Defined inside autocmd to support lazyily loading plugins
 function! AirlineInit()
   let g:airline_section_a = airline#section#create(["mode"])
-  let g:airline_section_c = airline#section#create(["crypt", "spell", " ", "linenr"])
-  let g:airline_section_x = airline#section#create(["filetype", " ", "venv"])
+  let g:airline_section_c = airline#section#create(["crypt", "spell", " ", " "])
+  let g:airline_section_x = airline#section#create(["filetype", " ", " "])
   let g:airline_section_y = ""
   let g:airline_section_z = ""
 endfunction
@@ -150,7 +142,10 @@ let g:airline#extensions#fzf#enabled = 1
 " Skip showing number of changed lines etc
 let g:airline#extensions#hunks#enabled = 0
 
+
+""""""""""""""""""""""""""""""""
 " ALE Integration
+""""""""""""""""""""""""""""""""
 let airline#extensions#ale#error_symbol = '❌:'
 let airline#extensions#ale#warning_symbol = '⚠ :'
 let airline#extensions#ale#show_line_numbers = 0
@@ -388,28 +383,10 @@ let g:startify_bookmarks= [
 
 
 """"""""""""""""""""""""""""""""
-" nvim-r
+" avante.nvim
 """"""""""""""""""""""""""""""""
-let R_assign = 0
-let R_args = ['--no-save', '--quiet']
-
-" Some handy shortcuts.
-" NB: D stands for move Down
-vmap <Space> <Plug>RDSendSelection
-nmap <Space> <Plug>RDSendParagraph
-
-
-""""""""""""""""""""""""""""""""
-" vim-chatgpt
-""""""""""""""""""""""""""""""""
-" Pick which model to use
-let g:chat_gpt_model='gpt-4'
-
-" Keep a consistent session
-let g:chat_gpt_session_mode=1
-
-" If split should be open in vertical or horizontally
-let g:chat_gpt_split_direction = 'vertical'
-
-" Max numbr of tokenx
-let g:chat_gpt_max_tokens=2000
+autocmd! User avante.nvim
+lua << EOF
+require('avante_lib').load()
+require('avante').setup()
+EOF

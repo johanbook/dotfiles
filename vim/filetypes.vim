@@ -2,7 +2,7 @@
 " File specific formatting
 """"""""""""""""""""""""""""""""""""""""
 
-autocmd BufRead,BufNewFIle *.md,*.txt 
+autocmd BufRead,BufNewFIle *.md,*.txt
    \ setlocal spell |
    \ setlocal nonumber |
 
@@ -53,4 +53,4 @@ augroup SpellUnderline
   augroup END
 
 " No line numbers in terminal
-autocmd TerminalOpen * set nonumber
+"autocmd TerminalOpen * set nonumber
