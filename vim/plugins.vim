@@ -34,7 +34,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Highlight current line
-"Plug 'miyakogi/conoline.vim'
+Plug 'miyakogi/conoline.vim'
 
 " Fuzzy file navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -385,7 +385,6 @@ let g:startify_bookmarks= [
 """"""""""""""""""""""""""""""""
 " avante.nvim
 """"""""""""""""""""""""""""""""
-
 autocmd! User avante.nvim
 lua << EOF
 require('avante_lib').load()
