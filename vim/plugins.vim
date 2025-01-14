@@ -44,7 +44,6 @@ Plug 'junegunn/fzf.vim'
 " to work properly
 Plug 'airblade/vim-rooter'
 
-
 " Test runner
 Plug 'vim-test/vim-test'
 
