@@ -67,6 +67,9 @@ set nowrap
 " Fixes Vim freezing on Mac
 set re=2
 
+" Disable mouse in neovim
+set mouse=
+
 " Scripts
 source ~/.dotfiles/vim/filetypes.vim
 source ~/.dotfiles/vim/mapping.vim
