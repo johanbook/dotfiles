@@ -5,14 +5,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-function cdp () {
-  # Exit current venvs, but also exits current shell
-  while [[ "$VIRTUAL_ENV" != "" ]]; do exit; done
-
-  cd ${1:-.}; python -m pipenv shell
-}
-
-alias pipenv="python -m pipenv"
 
 
 ################################
@@ -27,52 +19,6 @@ alias cls=clear
 ################################
 alias la='ls -A'
 alias ls='ls  -1 --color=auto --group-directories-first -X --sort=extension'
-function lw () {
-  ls "$@" | wc
-}
-
-function ser(){
-  find ${2:-.} \
-    \( -type d -name .git  -prune \) \
-    -o \( -type d -name "_*" -prune \) \
-    -o -type f -print0 | xargs -0 sed -i $1
-}
-
-
-################################
-# Docker
-################################
-# Soft docker cleanup
-function dc (){
-    local services=$(docker service ls -q)
-    [ -s "$services" ] && docker service rm $services
-
-    local running=$(docker ps -aq)
-    [ -s "$running" ] && docker stop $running
-
-    local prs=$(docker ps -a -q)
-    [ -s "$prs" ] && docker rm $prs
-
-    echo "Cleaned Docker"
-}
-# Hard docker cleanup
-function dc-hard (){ \
-    dc();
-    docker network prune -f
-
-    local volumes=$(docker volume ls -q)
-    [ -s "$volumes" ] && docker volume rm $volumes
-}
-
-alias dl='docker service ls -q | xargs -L 1 docker service logs 2>&1 | grep -i error'
-alias dils='docker image ls'
-alias dcls='docker container ls'
-alias dps='docker stack ps --format "table  {{.Name}}\t{{.Image}}\t{{.CurrentState}}"'
-alias dsls='docker service ls'
-
-# I've had problems with containers not producing logs
-# this hacky alias fixes that by removing all logs (!)
-alias docker-clear-logs='sh -c "truncate -s 0 /var/lib/docker/containers/*/*-json.log"'
 
 
 #################################
@@ -103,16 +49,6 @@ function gca() {
   if [[ "$(git log -1)" == *"Merge"* ]]; then echo "Cannot amend into merge commit"; else git commit --amend --no-edit; fi
 }
 
-# Adds autocomplete to `grefresh`.
-# NB: Only works if same autocomplete already been used once
-# gref <branch-to-delete> <branch-to-checkout>
-function gref() {
-  if [ ! -z "$2" ]; then git checkout $2; else git checkout master; fi
-  [ ! -z "$1" ] && git branch -d $1
-  git pull
-  git remote prune origin
-}
-compdef __git_branch_names gref
 
 #################################
 # Misc
@@ -148,7 +84,6 @@ extract () {
 }
 
 alias diff="diff --color=always"
-alias R="R --no-save --quiet"
 alias vi="vim --clean"
 
 
